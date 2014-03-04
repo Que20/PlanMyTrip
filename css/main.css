@@ -88,6 +88,10 @@ body {
     font-family: "Myriad-Pro";
 }
 
+a {
+    text-decoration: none;
+}
+
 h1 {
     font-family: "Poetsen One";
 }
