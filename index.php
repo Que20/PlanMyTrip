@@ -5,9 +5,10 @@ include("pages/topbar.php");
 
             <div id="content">
                 <div id="search">
+                    <form action="search/index.php?<?php echo isset($_GET['search'])?>">
                     <span style="font-size:25px;text-shadow:0px 0px 2px #999999;">Je recherche un guide pour :</span><br>
-                    <input type=text class="searchBar" name="pseudo" placeholder=" Entrez le nom d'une ville">
-                    <INPUT type="submit" class="searchGo" value="GO">
+                    <input type=text class="searchBar" name="search" placeholder=" Entrez le nom d'une ville">
+                    <input type="submit" class="searchGo" value="GO">
                 </div>
             </div>
             <div id="intro">

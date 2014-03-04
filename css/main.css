@@ -331,6 +331,14 @@ h1 {
     padding-right: 20px;
 }
 
+#reultsTitle {
+    padding-top: 150px;
+    margin-left: 100px;
+}
+
+#resultsItems {
+    margin-left: 150px;
+}
 
 /* ==========================================================================
    Media Queries
