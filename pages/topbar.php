@@ -16,7 +16,7 @@
 
     <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/css/normalize.min.css">
     <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/css/main.css">
-    <script src="/<?= $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
 <div id="top">
