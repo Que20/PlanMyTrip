@@ -21,9 +21,9 @@ include("pages/topbar.php");
                     Vous êtes sur le point de partir ?<br>
                     Que prévoyez-vous ..?
                 </div>
-                <div id="signup">
+                <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/pages/registration/"><div id="signup">
                     Inscrivez-vous!
-                </div><br><br>
+                </div></a><br><br>
             </div>
             <div id="footer">
             </div>
