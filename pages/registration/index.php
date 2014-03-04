@@ -1,5 +1,4 @@
 <?php
-	include('../topbar.html');
-	
-	
+	include('../topbar.php');
+
 ?>

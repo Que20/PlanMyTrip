@@ -9,10 +9,14 @@
     <title>PlanMyTrip</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+	<?php
+	$link1 = $_SERVER['HTTP_HOST']."/PlanMyTrip/css/normalize.min.css";
+	$link2 = $_SERVER['HTTP_HOST']."/PlanMyTrip/css/main.css";
+	?>
 
-    <link rel="stylesheet" href="css/normalize.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <link rel="stylesheet" href="<?= $link1  ?>">
+    <link rel="stylesheet" href="<?= $link2 ?>">
+    <script src="/<?= $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
 <div id="top">
@@ -39,7 +43,7 @@
                 <input type=text class="loginName" name="pseudo" placeholder=" Pseudo">
                 <input type=text class="loginPassword" name="pseudo" placeholder=" Mot de Passe">
                 <input type="submit" class="go" value="login">
-            </from>
+            </form>
         </div>
      </div>
 </div>
