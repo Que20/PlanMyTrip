@@ -53,7 +53,7 @@
 
             <form method=post action="pages/home/">
                 <input type=text class="loginName" name="pseudo" placeholder=" Pseudo">
-                <input type=text class="loginPassword" name="pseudo" placeholder=" Mot de Passe">
+                <input type=password class="loginPassword" name="pseudo" placeholder=" Mot de Passe">
                 <input type="submit" class="go" value="login">
             </form>
         <?php
