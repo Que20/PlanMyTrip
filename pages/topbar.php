@@ -22,9 +22,9 @@
 <body>
 <div id="top">
     <div id="topbar">
-        <div id="title">
+        <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/"><div id="title">
             <h1>PlanMyTrip</h1>
-        </div>
+        </div></a>
                 <!--<div id="menu">
                     <div class="cat">
                         <span style="text-shadow:0px 0px 1px #FFF;">Catégorie 1</span>
