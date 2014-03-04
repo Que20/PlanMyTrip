@@ -106,7 +106,7 @@ h1 {
 }
 
 #topbar{
-    min-width: 990px;
+    min-width: 500px;
 }
 
 #title {
@@ -199,7 +199,8 @@ h1 {
     border-radius: 10px;
     background-color: white;
     box-shadow: 0px 0px 30px black;
-    width: 36%;
+    width: 400px;
+    min-width: 350px;
     height: 100px;
     margin-left: 32%;
     padding-left: 30px;
