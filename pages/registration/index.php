@@ -1,6 +1,11 @@
 <?php
 	include('../topbar.php');
-
+	
+	if($_GET['mdp'] == -1){
+		?>
+		<script> alert('Le mot de passe doit contenir au moins 8 caractères !');</script>
+	<?php 
+	}
 ?>
 <div id="registration">
 	<div id="regImg"></div>
@@ -10,16 +15,16 @@
 		<form action="registration.php" method="post">
 			<table border="0">
 				<tr>
-			<td style="width:200px;">Nom Complet</td><td><input type=text class="regRealname" name="realname"></td>
+			<td style="width:200px;">Nom Complet</td><td><input type=text class="regRealname" name="realname" required></td>
 				</tr>
 				<tr>
-			<td >Nom d'utilisateur</td><td><input type=text class="regName" name="pseudo"></td>
+			<td >Nom d'utilisateur</td><td><input type=text class="regName" name="pseudo" required></td>
 				</tr>
 				<tr>
-			<td >Email</td><td><input style="width:223px;" type=mail class="regMail" name="mail"></td>
+			<td >Email</td><td><input style="width:223px;" type=mail class="regMail" name="mail" required></td>
 				</tr>
 				<tr>
-			<td >Mot de passe</td><td><input type=password class="regPassword" name="mdp"></td>
+			<td >Mot de passe</td><td><input type=password class="regPassword" name="mdp" required></td>
 				</tr>
 			</table>
 			<input type="checkbox" name="licence"> 
