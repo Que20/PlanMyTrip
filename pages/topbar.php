@@ -10,12 +10,12 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 	<?php
-	$link1 = $_SERVER['HTTP_HOST']."/PlanMyTrip/css/normalize.min.css";
-	$link2 = $_SERVER['HTTP_HOST']."/PlanMyTrip/css/main.css";
+	$link1 = 'http://'.$_SERVER['HTTP_HOST']."/PlanMyTrip/css/normalize.min.css";
+	$link2 = 'http://'.$_SERVER['HTTP_HOST']."/PlanMyTrip/css/main.css";
 	?>
 
-    <link rel="stylesheet" href="<?= $link1  ?>">
-    <link rel="stylesheet" href="<?= $link2 ?>">
+    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/css/normalize.min.css">
+    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/css/main.css">
     <script src="/<?= $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
