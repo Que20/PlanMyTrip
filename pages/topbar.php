@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+    <html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -14,9 +15,9 @@
 	$link2 = 'http://'.$_SERVER['HTTP_HOST']."/PlanMyTrip/css/main.css";
 	?>
 
-    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/css/normalize.min.css">
-    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/css/main.css">
-    <script src="http://<?= $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/js/vendor/modernizr-2.6.2.min.js"></script>
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/css/normalize.min.css">
+    <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/css/main.css">
+    <script src="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
 <div id="top">
@@ -39,13 +40,25 @@
                     </div>
                 </div>-->
         <div id="login">
+        <?php
+        /*Si les variables de session existent affiche la connexion avec l'option de deco
+        */
+        if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
+        {
+            echo "Bienvenue " . $_SESSION['pseudo'];
+        }
+        else
+        {
+            ?>
+
             <form method=post action="pages/home/">
                 <input type=text class="loginName" name="pseudo" placeholder=" Pseudo">
                 <input type=text class="loginPassword" name="pseudo" placeholder=" Mot de Passe">
                 <input type="submit" class="go" value="login">
             </form>
-        </div>
+        <?php
+        }
+        ?>
      </div>
+    </div>
 </div>
-</html>
-</body>
