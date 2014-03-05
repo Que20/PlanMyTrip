@@ -46,6 +46,7 @@
         if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
         {
             echo "Bienvenue " . $_SESSION['pseudo'];
+            echo '</br> <a href="Sessions/deconnexion.php"> <c1>Deconnexion</c1> </a> </br>';
         }
         else
         {
