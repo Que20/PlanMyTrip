@@ -6,12 +6,12 @@ include_once '../config/config.php';
 
 if(isset($_POST['loginEnt']))
 {
-// Hachage du mot de passe + rajout de la chaine flt01 et hashage
-    $passe_hache = sha1('sx57b&@'.$_POST['password']);
+// Hachage du mot de passe : rajout du sel et hashage
+    $passe_hache = sha1('sx57b&@'.htmlentities($_POST['password'], ENT_QUOTES));
 // Vérification des identifiants
     $req = $bdd->prepare('SELECT Id_User,FullName,isValidate FROM user WHERE Pseudo = :Pseudo AND Password = :Password');
     $req->execute(array(
-        'Pseudo' => $_POST['pseudo'],
+        'Pseudo' => htmlentities($_POST['pseudo'], ENT_QUOTES),
         'Password' => $passe_hache));
 
     $resultat = $req->fetch();
