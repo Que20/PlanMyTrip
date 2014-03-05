@@ -45,8 +45,12 @@
         */
         if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
         {
-            echo "Bienvenue " . $_SESSION['pseudo'];
-            echo '</br> <a href="/PlanMyTrip/pages/loger/logout.php"> <c1>Deconnexion</c1> </a> </br>';
+            ?>
+            <div id="loged">
+                <span id="nameLoged">Bonjour <a href="#"><?php echo $_SESSION['pseudo']; ?></a></span>
+                <a href="/PlanMyTrip/pages/loger/logout.php" style="color:red;"> Deconnexion </a>
+            </div>
+            <?php
         }
         else
         {

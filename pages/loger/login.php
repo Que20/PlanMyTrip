@@ -38,8 +38,8 @@ if(isset($_POST['loginEnt']))
         $_SESSION['pseudo'] = $_POST['pseudo'];
         ?>
         <div id='login_status'>
-            <br> <br> Connexion autorisée, vous serez bientôt redirigé vers la page d'accueil...
-            <br> Si vous n'êtes pas redirigé dans les 5 secondes cliquez <a href="../../index.php"> ici </a>
+            Connexion en cours, vous serez bientôt redirigé vers la page d'accueil!
+            Si vous n'êtes pas redirigé dans les 5 secondes cliquez <a href="../../index.php"> ici</a>.
         </div>
         <script type='text/javascript'>
             setTimeout('window.location.replace("../../index.php")',3000);
