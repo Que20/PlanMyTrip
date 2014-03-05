@@ -184,7 +184,7 @@ h1 {
 
 .go{
     border-radius: 5px;
-    border: 1px solid gray;
+    border: 1px solid orange;
     background-color: #F;
     height: 28px;
     background: linear-gradient(to top, orange, yellow);
@@ -419,6 +419,30 @@ tr.result td:hover {
     float: right;  
     height: 500px;
     width: 150px;
+}
+
+#guidePage {
+    padding-top: 70px;
+    width:70%;
+    margin:auto;
+}
+
+#guideName {
+    font-size: 25px;
+}
+
+#guideBy {
+    font-size: 15px;
+}
+
+#guideText {
+    float: left;
+    margin-top:20px;
+    margin-left: 40px;
+}
+
+#guideInfos {
+    border-bottom: 1px dotted dimgray;
 }
 
 /* ==========================================================================
