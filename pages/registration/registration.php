@@ -25,7 +25,7 @@
 		
 	//Cryptage du mot de passe 
 	
-	$mdp = sha1('sx57b&@'.$_POST['mdp']);
+	$mdp = sha1('sx57b&@'.htmlentities($_POST['mdp'],ENT_QUOTES));
 	
 	
 	//Requête de mise en base
