@@ -1,10 +1,12 @@
 <?php
 	include('../topbar.php');
 	
-	if($_GET['mdp'] == -1){
-		?>
-		<script> alert('Le mot de passe doit contenir au moins 8 caractères !');</script>
-	<?php 
+	if(isset($_GET['mdp']){
+		if($_GET['mdp'] == -1){
+			?>
+			<script> alert('Le mot de passe doit contenir au moins 8 caractères !');</script>
+		<?php 
+		}
 	}
 ?>
 <div id="registration">
