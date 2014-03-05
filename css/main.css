@@ -501,6 +501,41 @@ tr.result td:hover {
     border-bottom: 1px dotted dimgray;
 }
 
+#newGuidePage{
+    padding-top: 100px;
+    width: 950;
+    margin:auto;
+}
+#newGuide {
+    padding-left: 50px;
+    padding-top: 20px;
+    width: 600px;
+    margin:auto;
+    float: left;
+}
+
+#indications {
+     width:600px;
+     font-size:15px;
+     background-color:#57A5FF;
+     border:1px solid #5776FF;
+     padding:10px;
+     margin-bottom:20px;
+     border-radius:5px;
+}
+
+#help {
+    padding: 5px;
+    text-align: center;
+    float:right;
+    margin-top: 390px;
+    width: 100px;
+    height: 70px;
+    border-radius: 5px;
+    border: 1px solid #FFE057;
+    background-color: #FFF0AD;
+}
+
 /* ==========================================================================
    Media Queries
    ========================================================================== */

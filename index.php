@@ -34,7 +34,7 @@ include("pages/topbar.php");
                 }
                 else{
                 ?>
-                <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/pages/registration/"><div id="propose">
+                <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/pages/new_guide/"><div id="propose">
                     Proposez votre Guide
                 </div></a>
                 <?php
