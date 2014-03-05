@@ -8,6 +8,12 @@ $s =  $_GET['search'];
 	<div id="reultsTitle">
 		Résultat de la cherche pour : <b><?php echo $s ?></b><br>
 	</div>
+
+	<div id="resultPage">
+	<div id="pub1">
+		Publicité plus ou moins invasive1
+	</div> 
+
 	<div id="resultsItems"><br>
 		<table>
 			<tr class="result">
@@ -41,7 +47,8 @@ $s =  $_GET['search'];
 		</table>
 	</div>
 
-	<div id="pub">
-		Publicité plus ou moins invasive
-	</tab> 
+	<div id="pub2">
+		Publicité plus ou moins invasive2
+	</div> 
+	</div>
 </div>
