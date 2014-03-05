@@ -52,10 +52,10 @@
         {
             ?>
 
-            <form method=post action="pages/home/">
+            <form method=post action="pages/loger/login.php">
                 <input type=text class="loginName" name="pseudo" placeholder=" Pseudo">
-                <input type=password class="loginPassword" name="pseudo" placeholder=" Mot de Passe">
-                <input type="submit" class="go" value="login">
+                <input type=password class="loginPassword" name="password" placeholder=" Mot de Passe">
+                <input type="submit" class="go" value="login" name="loginEnt">
             </form>
         <?php
         }
