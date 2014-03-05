@@ -184,9 +184,10 @@ h1 {
 
 .go{
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid gray;
     background-color: #F;
     height: 28px;
+    background: linear-gradient(to top, orange, yellow);
 }
 
 #content {
