@@ -4,6 +4,7 @@
 	$errMdp = 0;
 	$mdpE = 0;
 	$cpE = 0;
+	$mailE = 0;
 	if(isset($_GET['error'])){
 		$err = 1;
 		if($_GET['error'] == 1){
@@ -11,6 +12,9 @@
 		}
 		if($_GET['error'] == 2){
 			$cpE = 1;
+		}
+		if($_GET['error'] == 3){
+			$mailE = 1;
 		}
 	}
 ?>
@@ -30,6 +34,9 @@
 			}
 			if($cpE == 1){
 				echo "Les deux mots de passes ne sont pas identiques.";
+			}
+			if($mailE == 1){
+				echo "Erreur lors de l'envoi du mail.";
 			}
 			?>
 		</div>

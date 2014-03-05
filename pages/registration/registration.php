@@ -1,5 +1,5 @@
 <?php
-
+	include('../topbar.php');
 	//Connexion BDD
 	
 	try
@@ -47,13 +47,11 @@
 	
 	if(mail($_POST['mail'], "Confirmation d'inscription", $message)){
 		?>
-		<script>alert('Inscription terminée, un mail de confirmation a été envoyé à l\'adresse indiquée !');</script>
+		<span style="width:600px;text-align:center;padding-top:200px;margin:auto;">Merci de votre inscription !<br>Un mail de confirmation a été envoyé à l'adresse mail indiqué.<br>À tout de suite sur PlanMyTrip :)</span>
 		<?php
 	}
 	else{
-		?>
-		<script>alert('Echec lors de l\'envoi du mail');</script>
-		<?php
+		header("location:index.php?error=3");
 	}
 				
 	
