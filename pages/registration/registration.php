@@ -34,9 +34,9 @@
 	
 	//Envoi du mail de confirmation
 	
-	$message = "Bonjour, et merci pour votre inscription sur notre site ! \n
-				Veuillez suivre ce lien pour activer votre compte : http://planmytrip.com/pages/registration/confirmation.php?".$validate_key."\n \n
-				L'équipe PlanMyTrip. \n \n
+	$message = "Bonjour, et merci pour votre inscription sur notre site ! \r\n
+				Veuillez suivre ce lien pour activer votre compte : \r\n http://planmytrip.com/pages/registration/confirmation.php?".$validate_key."\r\n \n
+				L'équipe PlanMyTrip. \r\n \n
 				P.S. : ceci est un mail automatique, veuillez ne pas y répondre.";
 	
 	if(mail($_POST['mail'], "Confirmation d'inscription", $message)){
