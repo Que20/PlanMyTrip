@@ -344,13 +344,26 @@ h1 {
     font-size: 20px;
 }
 
+#resultPage {
+    width: 1100px;
+    margin:auto;
+}
+
+#pub1 {
+    margin-top: 50px;
+    border:1px solid black;
+    float: left;  
+    height: 500px;
+    width: 150px;
+}
+
 #resultsItems {
-    margin-left: 150px;
+    margin-left: 50px;
     float: left;
 }
 
 tr.result td {
-    width: 600px; 
+    min-width: 600px;
     padding-left: 10px;
     padding-right: 10px; 
     padding-top: 10px;
@@ -365,23 +378,29 @@ tr.result td:hover {
 .resultInfo {
     float: left;
 }
+
 .resultName {
     font-size: 25px;
 }
+
 .resultName a {
     color:black;
 }
+
 .resultVote {
     float:right;
 }
+
 .greenthumb {
     text-align: center;
     color:green;
 }
+
 .redthumb {
     text-align: center;
     color:red;
 }
+
 .resultTag {
     color:white;
     border-radius: 5px;
@@ -393,13 +412,12 @@ tr.result td:hover {
     background-color: gray;
 }
 
-#pub {
+#pub2 {
     margin-top: 50px;
-    margin-right: 200px;
     border:1px solid black;
     float: right;  
     height: 500px;
-    width: 200px;
+    width: 150px;
 }
 
 /* ==========================================================================
