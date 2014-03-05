@@ -27,6 +27,10 @@ try{
             {
                 echo 'Aucun résultat';
             }
+            elseif(strlen($s)<4)
+            {
+                echo 'Les termes de votre recherche doivent être supérieurs à 3 caractères';
+            }
             else
             {
 
