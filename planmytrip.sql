@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mer 05 Mars 2014 à 10:13
+-- Généré le: Mer 05 Mars 2014 à 16:05
 -- Version du serveur: 5.5.24-log
 -- Version de PHP: 5.4.3
 
@@ -34,6 +34,8 @@ CREATE TABLE IF NOT EXISTS `guide` (
   `Pays` text NOT NULL,
   `Ville` text,
   `Datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Upvote` int(11) DEFAULT NULL,
+  `Downvote` int(11) DEFAULT NULL,
   PRIMARY KEY (`Id_Guide`),
   KEY `Id_User` (`Id_User`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
@@ -42,8 +44,8 @@ CREATE TABLE IF NOT EXISTS `guide` (
 -- Contenu de la table `guide`
 --
 
-INSERT INTO `guide` (`Id_Guide`, `Titre`, `Contenu`, `Id_User`, `Pays`, `Ville`, `Datetime`) VALUES
-(2, 'Guide du swag', 'yolololoo, mega swagman', 4, 'France', 'Paris', '2014-03-05 09:48:10');
+INSERT INTO `guide` (`Id_Guide`, `Titre`, `Contenu`, `Id_User`, `Pays`, `Ville`, `Datetime`, `Upvote`, `Downvote`) VALUES
+(2, 'Guide du swag', 'yolololoo, mega swagman', 4, 'France', 'Paris', '2014-03-05 09:48:10', NULL, NULL);
 
 -- --------------------------------------------------------
 

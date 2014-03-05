@@ -42,7 +42,7 @@
 	if($bname || $bmail){
 		?>
 		<div id='login_status'>
-            Vos informations ont bien été enregistrées ! Redirection...
+            Vos modifications ont bien été enregistrées ! Redirection...
         </div>
         <script type='text/javascript'>
             setTimeout('window.location.replace("index.php")',3000);
