@@ -37,15 +37,7 @@ if(isset($_POST['loginEnt']))
         $_SESSION['id'] = $resultat['Id_User'];
         $_SESSION['pseudo'] = htmlentities($_POST['pseudo'],ENT_QUOTES);
 
-        ?>
-        <div id='login_status'>
-            Connexion en cours, vous serez bientôt redirigé vers la page d'accueil!
-            Si vous n'êtes pas redirigé dans les 5 secondes cliquez <a href="../../index.php"> ici</a>.
-        </div>
-        <script type='text/javascript'>
-            setTimeout('window.location.replace("../../index.php")',3000);
-        </script>
-<?php
+        header('location:../../index.php');
     }
 }
 ?>

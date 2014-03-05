@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("pages/topbar.php");
+
 ?>
 
             <div id="content">
@@ -23,6 +24,7 @@ include("pages/topbar.php");
                     Que prévoyez-vous ..?
                 </div>
                 <?php
+
                 if (!isset($_SESSION['id']) && !isset($_SESSION['pseudo'])){
                 ?>
                 <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/pages/registration/"><div id="signup">

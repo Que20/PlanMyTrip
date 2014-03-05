@@ -38,6 +38,14 @@
                 </div>-->
         <div id="login">
         <?php
+
+        if(!isset($ip))
+        {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+
+
+
         /*Si les variables de session existent affiche la connexion avec l'option de deco
         */
         if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
