@@ -339,10 +339,67 @@ h1 {
 #reultsTitle {
     padding-top: 150px;
     margin-left: 100px;
+    border-bottom: 1px dashed dimgray;
+    margin-right: 100px;
+    font-size: 20px;
 }
 
 #resultsItems {
     margin-left: 150px;
+    float: left;
+}
+
+tr.result td {
+    width: 600px; 
+    padding-left: 10px;
+    padding-right: 10px; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid gray;
+}
+
+tr.result td:hover {
+    background-color: #E3E3E3;
+}
+
+.resultInfo {
+    float: left;
+}
+.resultName {
+    font-size: 25px;
+}
+.resultName a {
+    color:black;
+}
+.resultVote {
+    float:right;
+}
+.greenthumb {
+    text-align: center;
+    color:green;
+}
+.redthumb {
+    text-align: center;
+    color:red;
+}
+.resultTag {
+    color:white;
+    border-radius: 5px;
+    background-color: dimgray;
+    padding-right:2px;
+    padding-left:2px; 
+}
+.resultTag:hover {
+    background-color: gray;
+}
+
+#pub {
+    margin-top: 50px;
+    margin-right: 200px;
+    border:1px solid black;
+    float: right;  
+    height: 500px;
+    width: 200px;
 }
 
 /* ==========================================================================
