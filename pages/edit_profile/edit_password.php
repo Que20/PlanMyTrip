@@ -75,6 +75,6 @@
 				setTimeout('window.location.replace("index.php")',3000);
 			</script>
 			<?php
-		}
-			
+	}
+?>
 			
