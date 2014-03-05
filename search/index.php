@@ -23,30 +23,39 @@ try{
 	<div id="resultsItems"><br>
 		<table>
 			<?php
+            if($s==null)
+            {
+                echo 'Aucun résultat';
+            }
+            else
+            {
+
             $requete = $bdd->prepare("SELECT * FROM guide WHERE titre LIKE ? ORDER BY Id_Guide DESC");
             $requete->execute(array('%'.mysql_real_escape_string($s).'%'));
 
-			while($item=$requete->fetch()){
+
+            while($item=$requete->fetch()){
+
 
                 ?>
-			<tr class="result">
-			<td>
-				<div class="resultInfo">
-					<div class="resultName"><a href="../pages/guide/index.php?Id_Guide=<?php echo $item['Id_Guide'] ?>"><?php echo $item['Titre'] ?></a></div>
-					<div class="resultAuthor">Ecris par : <?php echo $item['Id_User'] ?></div>
-					Tags : <a href="#"><span class="resultTag"> Culture </span></a>, <a href="#"><span class="resultTag"> Rock </span></a>
-				</div>
-				<div class="resultVote">
-					<div class="greenthumb"><img class="thumb" src="../img/up.png"><br>25</div>
-					<div class="redthumb"><img class="thumb" src="../img/down.png"><br>25</div>
-				</div>
-				<br>
-			</td>
-			</tr>
-			<?php
+                <tr class="result">
+                    <td>
+                        <div class="resultInfo">
+                            <div class="resultName"><a href="../pages/guide/index.php?Id_Guide=<?php echo $item['Id_Guide'] ?>"><?php echo $item['Titre'] ?></a></div>
+                            <div class="resultAuthor">Ecris par : <?php echo $item['Id_User'] ?></div>
+                            Tags : <a href="#"><span class="resultTag"> Culture </span></a>, <a href="#"><span class="resultTag"> Rock </span></a>
+                        </div>
+                        <div class="resultVote">
+                            <div class="greenthumb"><img class="thumb" src="../img/up.png"><br>25</div>
+                            <div class="redthumb"><img class="thumb" src="../img/down.png"><br>25</div>
+                        </div>
+                        <br>
+                    </td>
+                </tr>
+            <?php
             }
-            ?>
 
+            }?>
 		</table>
 	</div>
 

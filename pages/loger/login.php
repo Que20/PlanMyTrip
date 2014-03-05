@@ -36,6 +36,7 @@ if(isset($_POST['loginEnt']))
         session_start();
         $_SESSION['id'] = $resultat['Id_User'];
         $_SESSION['pseudo'] = $_POST['pseudo'];
+
         ?>
         <div id='login_status'>
             Connexion en cours, vous serez bientôt redirigé vers la page d'accueil!
