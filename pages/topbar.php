@@ -46,13 +46,13 @@
         if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
         {
             echo "Bienvenue " . $_SESSION['pseudo'];
-            echo '</br> <a href="Sessions/deconnexion.php"> <c1>Deconnexion</c1> </a> </br>';
+            echo '</br> <a href="/PlanMyTrip/pages/loger/logout.php"> <c1>Deconnexion</c1> </a> </br>';
         }
         else
         {
             ?>
 
-            <form method=post action="pages/loger/login.php">
+            <form method=post action="/PlanMyTrip/pages/loger/login.php">
                 <input type=text class="loginName" name="pseudo" placeholder=" Pseudo">
                 <input type=password class="loginPassword" name="password" placeholder=" Mot de Passe">
                 <input type="submit" class="go" value="login" name="loginEnt">

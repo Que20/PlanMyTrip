@@ -1,15 +1,15 @@
 <?php
 
-include_once '../config/config.php';
 
 include '../topbar.php';
+include_once '../config/config.php';
 
 if(isset($_POST['loginEnt']))
 {
 // Hachage du mot de passe + rajout de la chaine flt01 et hashage
     $passe_hache = sha1('sx57b&@'.$_POST['password']);
 // Vérification des identifiants
-    $req = $bdd->prepare('SELECT FullName,isValidate FROM user WHERE Pseudo = :Pseudo AND Password = :Password');
+    $req = $bdd->prepare('SELECT Id_User,FullName,isValidate FROM user WHERE Pseudo = :Pseudo AND Password = :Password');
     $req->execute(array(
         'Pseudo' => $_POST['pseudo'],
         'Password' => $passe_hache));
@@ -22,18 +22,27 @@ if(isset($_POST['loginEnt']))
     }
     if($resultat['isValidate']=='0')
     {
-        echo "Connexion refusée, votre compte n'est pas activé, veuillez confirmer votre compte en cliquant sur le lien qui vous a été envoyer par mail";
+        echo "Connexion refusée, votre compte n'est pas activé, veuillez confirmer votre compte en cliquant sur le lien qui vous a été envoyer par mail
+        <br> Vous serez bientôt redirigé vers la page d'accueil";
+        ?>
+        <script type='text/javascript'>
+            setTimeout('window.location.replace("../../index.php")',2000);
+        </script>
+        <?php
     }
 //Sinon variable de session crées et connexion
     else if ($resultat['isValidate']=='1')
     {
         session_start();
-        $_SESSION['id'] = $resultat['Id_Utilisateur'];
-        $_SESSION['email'] = $_POST['Email'];
+        $_SESSION['id'] = $resultat['Id_User'];
+        $_SESSION['pseudo'] = $_POST['pseudo'];
         ?>
         <div id='login_status'>
-            <br> <br> Connexion refusée, votre compte n'est pas activé, veuillez confirmer votre compte en cliquant sur le lien qui vous a été envoyer par mail
+            <br> <br> Connexion autorisée, vous serez bientôt redirigé vers la page d'accueil...
         </div>
+        <script type='text/javascript'>
+            setTimeout('window.location.replace("../../index.php")',2000);
+        </script>
 <?php
     }
 }
