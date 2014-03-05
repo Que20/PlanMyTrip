@@ -26,7 +26,7 @@ if(isset($_POST['loginEnt']))
         <br> Vous serez bientôt redirigé vers la page d'accueil";
         ?>
         <script type='text/javascript'>
-            setTimeout('window.location.replace("../../index.php")',2000);
+            setTimeout('window.location.replace("../../index.php")',3000);
         </script>
         <?php
     }
@@ -39,9 +39,10 @@ if(isset($_POST['loginEnt']))
         ?>
         <div id='login_status'>
             <br> <br> Connexion autorisée, vous serez bientôt redirigé vers la page d'accueil...
+            <br> Si vous n'êtes pas redirigé dans les 5 secondes cliquez <a href="../../index.php"> ici </a>
         </div>
         <script type='text/javascript'>
-            setTimeout('window.location.replace("../../index.php")',2000);
+            setTimeout('window.location.replace("../../index.php")',3000);
         </script>
 <?php
     }
