@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mer 05 Mars 2014 à 08:44
+-- Généré le: Mer 05 Mars 2014 à 10:13
 -- Version du serveur: 5.5.24-log
 -- Version de PHP: 5.4.3
 
@@ -31,12 +31,19 @@ CREATE TABLE IF NOT EXISTS `guide` (
   `Titre` text NOT NULL,
   `Contenu` text NOT NULL,
   `Id_User` int(11) NOT NULL,
-  `Id_Tag` int(11) NOT NULL,
   `Pays` text NOT NULL,
   `Ville` text,
+  `Datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`Id_Guide`),
-  KEY `Id_User` (`Id_User`,`Id_Tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  KEY `Id_User` (`Id_User`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `guide`
+--
+
+INSERT INTO `guide` (`Id_Guide`, `Titre`, `Contenu`, `Id_User`, `Pays`, `Ville`, `Datetime`) VALUES
+(2, 'Guide du swag', 'yolololoo, mega swagman', 4, 'France', 'Paris', '2014-03-05 09:48:10');
 
 -- --------------------------------------------------------
 
@@ -61,7 +68,14 @@ CREATE TABLE IF NOT EXISTS `tag` (
   `Id_Tag` int(11) NOT NULL AUTO_INCREMENT,
   `Libelle` text NOT NULL,
   PRIMARY KEY (`Id_Tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `tag`
+--
+
+INSERT INTO `tag` (`Id_Tag`, `Libelle`) VALUES
+(1, 'metal');
 
 -- --------------------------------------------------------
 
@@ -78,7 +92,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   `ValidateKey` text NOT NULL,
   `IsValidate` tinyint(1) NOT NULL,
   PRIMARY KEY (`Id_User`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Contenu de la table `user`
+--
+
+INSERT INTO `user` (`Id_User`, `FullName`, `Pseudo`, `Mail`, `Password`, `ValidateKey`, `IsValidate`) VALUES
+(4, 'Alex F', 'Dak', 'tarat@jopl.fr', 'grqegdsg', 'sdgeqs049849', 0);
 
 --
 -- Contraintes pour les tables exportées
