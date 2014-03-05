@@ -18,6 +18,12 @@
 	if( strlen($_POST['mdp']) < 8 ){
 		header("location:index.php?error=1");
 	}
+
+	if( strlen($_POST['mdp']) != strlen($_POST['mdp2']) ){
+		header("location:index.php?error=2");
+	}
+
+
 	
 	//Génération de la validateKey
 	

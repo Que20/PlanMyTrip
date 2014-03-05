@@ -2,10 +2,15 @@
 	include('../topbar.php');
 	$err = 0;
 	$errMdp = 0;
+	$mdpE = 0;
+	$cpE = 0;
 	if(isset($_GET['error'])){
 		$err = 1;
 		if($_GET['error'] == 1){
-			$mdp = 1;
+			$mdpE = 1;
+		}
+		if($_GET['error'] == 2){
+			$cpE = 1;
 		}
 	}
 ?>
@@ -20,8 +25,11 @@
 		<div id="regError">
 			Erreur !<br>
 			<?php
-			if($mdp == 1){
+			if($mdpE == 1){
 				echo "Le mot de passe doit comporter au moins 8 characteres.";
+			}
+			if($cpE == 1){
+				echo "Les deux mots de passes ne sont pas identiques.";
 			}
 			?>
 		</div>
@@ -41,6 +49,9 @@
 				</tr>
 				<tr>
 			<td >Mot de passe</td><td><input type=password class="regPassword" name="mdp" required></td>
+				</tr>
+				<tr>
+			<td >Confirmation</td><td><input type=password class="regPassword" name="mdp2" required></td>
 				</tr>
 			</table>
 			<input type="checkbox" name="licence"> 
