@@ -20,7 +20,7 @@
 	if($_POST['mail'] != ""){
 		$bmail = true;
 		$requete = $bdd->prepare('UPDATE user SET Mail = ? WHERE Id_User = ?');
-		$requete->execute($_POST['mail'], $_SESSION['id']);
+		$requete->execute(array($_POST['mail'], $_SESSION['id']));
 		$bdd->closeCursor();
 	}
 	else
@@ -31,7 +31,7 @@
 	if($_POST['realname'] != ""){
 		$bname = true;
 		$requete = $bdd->prepare('UPDATE user SET Fullname = ? WHERE Id_User = ?');
-		$requete->execute($_POST['realname'], $_SESSION['id']);
+		$requete->execute(array($_POST['realname'], $_SESSION['id']));
 		$bdd->closeCursor();
 	}
 	else
