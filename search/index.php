@@ -23,8 +23,12 @@ try{
 	<div id="resultsItems"><br>
 		<table>
 			<?php
-			$requete = $bdd->query("SELECT * FROM guide WHERE 'Titre'  LIKE '%". mysql_real_escape_string($s) ."%' ORDER BY Id_Guide DESC;");
-			while($item = $requete->fetch()){?>			
+            $requete = $bdd->prepare("SELECT * FROM guide WHERE titre LIKE ? ORDER BY Id_Guide DESC");
+            $requete->execute(array('%'.mysql_real_escape_string($s).'%'));
+
+			while($item=$requete->fetch()){
+
+                ?>
 			<tr class="result">
 			<td>
 				<div class="resultInfo">
@@ -39,7 +43,9 @@ try{
 				<br>
 			</td>
 			</tr>
-			<?php } ?>
+			<?php
+            }
+            ?>
 
 		</table>
 	</div>
