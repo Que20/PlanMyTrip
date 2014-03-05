@@ -1,11 +1,11 @@
 <?php
 	include('../topbar.php');
-	
-	if(isset($_GET['mdp'])){
-		if($_GET['mdp'] == -1){
-			?>
-			<script> alert('Le mot de passe doit contenir au moins 8 caractères !');</script>
-		<?php 
+	$err = 0;
+	$errMdp = 0;
+	if(isset($_GET['error'])){
+		$err = 1;
+		if($_GET['error'] == 1){
+			$mdp = 1;
 		}
 	}
 ?>
@@ -14,6 +14,20 @@
 
 	<div id="regForm">
 		Rejoignez la communauté de PlanMyTrip!<br><br>
+		<?php
+		if ($err) {
+		?>
+		<div id="regError">
+			Erreur !<br>
+			<?php
+			if($mdp == 1){
+				echo "Le mot de passe doit comporter au moins 8 characteres.";
+			}
+			?>
+		</div>
+		<?php
+		}
+		?>
 		<form action="registration.php" method="post">
 			<table border="0">
 				<tr>
@@ -23,7 +37,7 @@
 			<td >Nom d'utilisateur</td><td><input type=text class="regName" name="pseudo" required></td>
 				</tr>
 				<tr>
-			<td >Email</td><td><input style="width:223px;" type=mail class="regMail" name="mail" required></td>
+			<td >Email</td><td><input style="width:223px;" type=email class="regMail" name="mail" required></td>
 				</tr>
 				<tr>
 			<td >Mot de passe</td><td><input type=password class="regPassword" name="mdp" required></td>
