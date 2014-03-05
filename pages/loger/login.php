@@ -35,7 +35,7 @@ if(isset($_POST['loginEnt']))
     {
         session_start();
         $_SESSION['id'] = $resultat['Id_User'];
-        $_SESSION['pseudo'] = $_POST['pseudo'];
+        $_SESSION['pseudo'] = htmlentities($_POST['pseudo'],ENT_QUOTES);
 
         ?>
         <div id='login_status'>
