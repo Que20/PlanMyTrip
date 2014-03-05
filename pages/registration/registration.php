@@ -30,10 +30,10 @@
 	
 	//Requête de mise en base
 	$request = $bdd->prepare('INSERT INTO User(FullName, Pseudo, Mail, Password, ValidateKey, IsValidate) VALUES(?,?,?,?,?,?)');
-	$request->execute(array(htmlentities($_POST['realname'],ENT_QUOTES), htmlentities($_POST['pseudo'],ENT_QUOTES), htmlentities($_POST['mail']), $mdp, $validate_key, 0));
-
+	$request->execute(array($_POST['realname'], $_POST['pseudo'], $_POST['mail'], $mdp, $validate_key, 0));
+	
 	//Envoi du mail de confirmation
-
+	
 	$message = "Bonjour, et merci pour votre inscription sur notre site ! \r\n
 				Veuillez suivre ce lien pour activer votre compte : \r\n http://planmytrip.com/pages/registration/confirmation.php?".$validate_key."\r\n \n
 				L'équipe PlanMyTrip. \r\n \n
