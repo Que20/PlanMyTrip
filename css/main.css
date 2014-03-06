@@ -413,6 +413,15 @@ h1 {
     font-size:15px;
 }
 
+#backBtn {
+    color:white;
+    margin-top: 100px;
+    padding: 5px;
+    border:1px solid #428bca;
+    background-color: #428bca;
+    border-radius: 5px;
+}
+
 .searchBarSearch {
     height: 18px;
     font-size: 15px;

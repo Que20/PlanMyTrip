@@ -21,7 +21,10 @@ $requete->execute(array($g));
 while($item=$requete->fetch()){
 	?>
 	<div id="guidePage">
+
 		<div id="guideInfos">
+			<br><br>
+			<a id="backBtn" href="<?php echo $_SERVER["HTTP_REFERER"];?>">&larr; Retours</a><br><br>
 			<span id="guideName"><?php echo $item['Ville'].", ".$item['Pays']." : ".$item['Titre'] ?></span><br>
 			<span id="guideBy">Soumis par l'utilisateur : <?php echo $item['Id_User'] ?> <br> le : xx/xx/xxxx</span>
 		</div>
