@@ -56,4 +56,4 @@
 				
 	
 ?>
-<?php include("pages/footer.php"); ?>
+<?php include("../footer.php"); ?>
