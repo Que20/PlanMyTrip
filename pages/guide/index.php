@@ -104,3 +104,4 @@ while($item=$requete->fetch()){
 }
 $requete->closeCursor();
 ?>
+<?php include("../footer.php"); ?> 

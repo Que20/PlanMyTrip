@@ -56,3 +56,4 @@
 				
 	
 ?>
+<?php include("pages/footer.php"); ?>

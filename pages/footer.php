@@ -1,5 +1,4 @@
 <div id="footer">
-	<br>
 	<div id="footerLinks">
 		<a href="#">Qui sommes-nous</a>
 		<a href="#">Mentions légales</a>
