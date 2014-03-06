@@ -2,12 +2,29 @@
 	session_start();
 	include('../topbar.php');
 	if(isset($_SESSION['id']) && isset($_SESSION['pseudo'])){
+	
+		try
+		{
+			$bdd = new PDO('mysql:host=localhost;dbname=planmytrip', 'root', '');
+	
+			$bdd->query("SET NAMES utf8");
+		}
+		catch (Exception $e)
+		{
+				die('Erreur : ' . $e->getMessage());
+		}
+		
+		$requete = $bdd->prepare('SELECT Fullname FROM user WHERE Id_User = ?');
+		$requete->execute(array($_SESSION['id']));
+		$result = $requete->fetch();
+		$requete->closeCursor();
+		
 	?>
 	
 	<div id="edit_profile">
-	
+		
 		<div id="edit_infos">
-			Modifiez vos informations<br><br>
+			Modifiez vos informations, <?= $result['Fullname'] ?><br><br>
 			<form action="edit_profile.php" method="post" enctype="multipart/form-data">
 				<table class="tableMod" border="0">
 					<tr>
