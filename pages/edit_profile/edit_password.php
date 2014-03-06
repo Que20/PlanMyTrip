@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	include('../topbar.php');
 	
 	//Contrôle général sur la présence de tous les champs
