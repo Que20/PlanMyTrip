@@ -54,7 +54,7 @@
 				<tr>
 			<td >Email</td><td><input style="width:223px;" type=email class="regMail" name="mail" required></td>
 				</tr>
-				<tr>
+				<tr>	
 			<td >Mot de passe</td><td><input type=password class="regPassword" name="mdp" required></td>
 				</tr>
 				<tr>
