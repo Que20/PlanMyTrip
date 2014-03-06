@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mer 05 Mars 2014 à 16:05
+-- Généré le: Jeu 06 Mars 2014 à 16:15
 -- Version du serveur: 5.5.24-log
 -- Version de PHP: 5.4.3
 
@@ -23,6 +23,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `admin`
+--
+
+CREATE TABLE IF NOT EXISTS `admin` (
+  `Id_Admin` int(11) NOT NULL,
+  `Pseudo` text NOT NULL,
+  `Password` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `guide`
 --
 
@@ -34,18 +46,12 @@ CREATE TABLE IF NOT EXISTS `guide` (
   `Pays` text NOT NULL,
   `Ville` text,
   `Datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `duration` int(1) NOT NULL,
   `Upvote` int(11) DEFAULT NULL,
   `Downvote` int(11) DEFAULT NULL,
   PRIMARY KEY (`Id_Guide`),
   KEY `Id_User` (`Id_User`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Contenu de la table `guide`
---
-
-INSERT INTO `guide` (`Id_Guide`, `Titre`, `Contenu`, `Id_User`, `Pays`, `Ville`, `Datetime`, `Upvote`, `Downvote`) VALUES
-(2, 'Guide du swag', 'yolololoo, mega swagman', 4, 'France', 'Paris', '2014-03-05 09:48:10', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -94,14 +100,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `ValidateKey` text NOT NULL,
   `IsValidate` tinyint(1) NOT NULL,
   PRIMARY KEY (`Id_User`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Contenu de la table `user`
 --
 
 INSERT INTO `user` (`Id_User`, `FullName`, `Pseudo`, `Mail`, `Password`, `ValidateKey`, `IsValidate`) VALUES
-(4, 'Alex F', 'Dak', 'tarat@jopl.fr', 'grqegdsg', 'sdgeqs049849', 0);
+(5, 'yolo', 'qsrg', 'qzgts@gesr.fr', '7768577dc159498e72a698815bd9bbfa524a16d5', 'd0c66db796a62b7d3ac06c19aa8950c6', 1),
+(7, 'YOLOSWAG', 'Alex', 'alex@zob.fr', '7a480b14a6c9edbc9af65de21b98f699fc6aa63f', 'b5db3d89dd70136d98224b3b3d1780e7', 1);
 
 --
 -- Contraintes pour les tables exportées
