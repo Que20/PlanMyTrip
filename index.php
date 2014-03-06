@@ -3,6 +3,7 @@ session_start();
 include("pages/topbar.php");
 ?>
             <div id="content">
+                <div id="textPres">Hello world bastard ! Brace yourself, this site is awesome..!</div>
                 <div id="search">
                     <form action="search/index.php?<?php echo isset($_GET['search']);?>&<?php echo isset($_GET['duration']);?>">
                     <span style="font-size:25px;text-shadow:0px 0px 2px #999999;">Je recherche un guide pour :</span><br>
@@ -42,7 +43,6 @@ include("pages/topbar.php");
                 ?>
                 <br><br>
             </div>
-            <div id="footer">
-            </div>
+            <?php include("pages/footer.php"); ?>
     </body>
 </html>

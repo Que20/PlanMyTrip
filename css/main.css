@@ -195,7 +195,7 @@ h1 {
     z-index: 1;
     margin:0;
     padding:0;
-    height: 270px;
+    height: 300px;
     width: 100%;
     box-shadow: 0px 0px 40px black;
     background-size: cover;
@@ -203,9 +203,18 @@ h1 {
     -background-color: black;
 }
 
+#textPres {
+    padding-top: 70px;
+    padding-left: 20%;
+    color:#FFA500;
+    font-size: 30px;
+    text-shadow:5px 5px 2px black;
+    font-family: "Poetsen One";
+}
+
 #search {
     position: absolute; 
-    margin-top: 100px;
+    margin-top: 20px;
     border:1px solid dimgray;
     border-radius: 10px;
     background-color: white;
@@ -579,6 +588,34 @@ tr.result td:hover {
     border-radius: 5px;
     border:1px solid #d43f3a;
     background-color:#FF8A8A;
+}
+
+#edit_profile {
+    padding-top: 100px;
+    width: 600px;
+    margin: auto;
+}
+
+table.tableMod td{
+    width: 180px;
+}
+
+#footer {
+    width: 100%;
+    margin:auto;
+    margin-bottom: 20px;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 100px;
+    background: linear-gradient(to bottom, #E6E6E6, white);
+}
+
+#footer a {
+    margin-left:20px;
+}
+
+h6 {
+    font-size: 13px;
 }
 /* ==========================================================================
    Media Queries

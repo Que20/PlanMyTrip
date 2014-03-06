@@ -52,7 +52,7 @@
         {
             ?>
             <div id="loged">
-                <span id="nameLoged">Bonjour <a href="#"><?php echo $_SESSION['pseudo']; ?></a></span>
+                <span id="nameLoged">Bonjour <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/pages/edit_profile/"><?php echo $_SESSION['pseudo']; ?></a></span>
                 <a href="/PlanMyTrip/pages/loger/logout.php" style="color:red;"> Deconnexion </a>
             </div>
             <?php
