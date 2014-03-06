@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Jeu 06 Mars 2014 à 16:31
+-- Généré le: Jeu 06 Mars 2014 à 18:20
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.12
 
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `ValidateKey` text NOT NULL,
   `IsValidate` tinyint(1) NOT NULL,
   PRIMARY KEY (`Id_User`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Contenu de la table `user`
@@ -118,7 +118,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`Id_User`, `FullName`, `Pseudo`, `Mail`, `Password`, `ValidateKey`, `IsValidate`) VALUES
 (5, 'yolo', 'qsrg', 'qzgts@gesr.fr', '7768577dc159498e72a698815bd9bbfa524a16d5', 'd0c66db796a62b7d3ac06c19aa8950c6', 1),
 (7, 'YOLOSWAG', 'Alex', 'alex@zob.fr', '7a480b14a6c9edbc9af65de21b98f699fc6aa63f', 'b5db3d89dd70136d98224b3b3d1780e7', 1),
-(8, 'Péquin Mathieu', 'M3te0r', 'mat.pequin@gmail.com', '1045e6911dd53cb6857ad348d76626f272228664', '4136ed9f2029bf4d70bedb1178e7f899', 1);
+(8, 'Péquin Mathieu', 'M3te0r', 'mat.pequin@gmail.com', '1045e6911dd53cb6857ad348d76626f272228664', '4136ed9f2029bf4d70bedb1178e7f899', 1),
+(9, 'aaaa', 'aaaa', 'aaaa@gmail.com', '1045e6911dd53cb6857ad348d76626f272228664', '92a0117b41b1a036a1eeb29b3b630f5c', 1);
 
 -- --------------------------------------------------------
 
@@ -147,19 +148,21 @@ INSERT INTO `votes` (`idGuide`, `nbDown`, `nbUp`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `votesbyuser` (
-  `idGuide` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idUser` int(11) NOT NULL,
+  `idGuide` int(11) NOT NULL,
   `hasVoted` tinyint(1) NOT NULL,
-  PRIMARY KEY (`idGuide`),
-  KEY `idUser` (`idUser`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`),
+  KEY `idUser` (`idUser`,`idGuide`),
+  KEY `idGuide` (`idGuide`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Contenu de la table `votesbyuser`
 --
 
-INSERT INTO `votesbyuser` (`idGuide`, `idUser`, `hasVoted`) VALUES
-(3, 8, 1);
+INSERT INTO `votesbyuser` (`id`, `idUser`, `idGuide`, `hasVoted`) VALUES
+(3, 9, 3, 1);
 
 --
 -- Contraintes pour les tables exportées
@@ -188,8 +191,8 @@ ALTER TABLE `votes`
 -- Contraintes pour la table `votesbyuser`
 --
 ALTER TABLE `votesbyuser`
-  ADD CONSTRAINT `votesbyuser_ibfk_2` FOREIGN KEY (`idUser`) REFERENCES `user` (`Id_User`),
-  ADD CONSTRAINT `votesbyuser_ibfk_1` FOREIGN KEY (`idGuide`) REFERENCES `votes` (`idGuide`);
+  ADD CONSTRAINT `votesbyuser_ibfk_2` FOREIGN KEY (`idGuide`) REFERENCES `votes` (`idGuide`),
+  ADD CONSTRAINT `votesbyuser_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `user` (`Id_User`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

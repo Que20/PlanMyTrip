@@ -34,12 +34,17 @@ while($item=$requete->fetch()){
 
             $resultVoteUser = $requeteHasVoted->fetch();
 
-            if($resultVoteUser['hasVoted']==0)
+            if(!isset($resultVoteUser['hasVoted']))
+            {
+                $create=true;
+            }
+            else if($resultVoteUser['hasVoted']==0)
             {
                 echo('<br>N\' a pas voté');
             }
-            else
+            else if($resultVoteUser['hasVoted']==1)
                 echo('<br>A voté');
+
 
             $requeteHasVoted->closeCursor();
 
@@ -55,19 +60,41 @@ while($item=$requete->fetch()){
 
             if(isset($_GET['votes']))
             {
-                if($_GET['votes']=='dislike')
-                $requetSubVote = $bdd->prepare('UPDATE votes SET nbDown = nbDown+1 WHERE idGuide =
+                if($_GET['votes']=='dislike' && !isset($create))
+                {
+                 $requetSubVote = $bdd->prepare('UPDATE votes SET nbDown = nbDown+1 WHERE idGuide =
                 (SELECT idGuide FROM votesByUser WHERE idGuide= ? AND idUser = ? AND hasVoted=0);
                 UPDATE votesbyuser SET hasvoted=1 WHERE idUser = ? AND idGuide = ? AND hasVoted=0; ');
+                    $requetSubVote->execute(array($g, $_SESSION['id'],$_SESSION['id'],$g ));
+                }
 
-
-                else if($_GET['votes']=='like')
+                else if($_GET['votes']=='like' && !isset($create))
                 {
                     $requetSubVote = $bdd->prepare('UPDATE votes SET nbUp = nbUp+1 WHERE idGuide =
                 (SELECT idGuide FROM votesByUser WHERE idGuide= ? AND idUser = ? AND hasVoted=0);
                 UPDATE votesbyuser SET hasvoted=1 WHERE idUser = ? AND idGuide = ? AND hasVoted=0; ');
+                    $requetSubVote->execute(array($g, $_SESSION['id'],$_SESSION['id'],$g ));
                 }
-                $requetSubVote->execute(array($g, $_SESSION['id'],$_SESSION['id'],$g ));
+
+                else if($_GET['votes']=='dislike' && $create==true)
+                {
+                    $requetSubVote = $bdd->prepare("INSERT INTO `planmytrip`.`votesbyuser` (`id`,`idUser`, `idGuide`, `hasVoted`) VALUES (?,?,?,?);
+                                                    UPDATE votes SET nbDown = nbDown+1 WHERE idGuide =
+                                                    (SELECT idGuide FROM votesByUser WHERE idGuide= ? AND idUser = ? AND hasVoted=1);");
+                    $requetSubVote->execute(array(NULL,$_SESSION['id'],$g,1,$g,$_SESSION['id']));
+
+                }
+
+                else if($_GET['votes']=='like' && $create==true)
+                {
+                    $requetSubVote = $bdd->prepare("INSERT INTO `planmytrip`.`votesbyuser` (`id`, `idUser`, `idGuide`, `hasVoted`) VALUES (?,?,?,?);
+                                                    UPDATE votes SET nbUp = nbUp+1 WHERE idGuide =
+                                                    (SELECT idGuide FROM votesByUser WHERE idGuide= ? AND idUser = ? AND hasVoted=1);");
+                    $requetSubVote->execute(array(NULL,$_SESSION['id'],$g,1,$g,$_SESSION['id']));
+
+                }
+
+
                 $requetSubVote->closeCursor();
             }
 
