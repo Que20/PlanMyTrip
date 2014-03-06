@@ -1,11 +1,16 @@
 <?php
 session_start();
 include("../../pages/topbar.php");
-$g =  $_GET['Id_Guide'];
+
+if(isset($_GET['Id_Guide']))
+{
+    $g =  $_GET['Id_Guide'];
+}
 try{
-	$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-	$bdd = new PDO('mysql:host=localhost;dbname=planmytrip', 'root', '', $pdo_options);
+	$bdd = new PDO('mysql:host=localhost;dbname=planmytrip', 'root', '');
+    $bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES, 1);
 	$bdd->exec("set names utf8");
+
 }catch (Exception $e){
 	die('Erreur : ' . $e->getMessage());
 }
@@ -22,11 +27,80 @@ while($item=$requete->fetch()){
 		</div>
 		<div id="pub1"></div>
 		<div id="guideText">
-			<?php echo $item['Contenu'] ?>
+			<?php echo $item['Contenu'];
+
+            $requeteHasVoted = $bdd->prepare('SELECT hasVoted FROM votesByUser WHERE idGuide=? AND idUser=?');
+            $requeteHasVoted->execute(array($item['Id_Guide'],$_SESSION['id']));
+
+            $resultVoteUser = $requeteHasVoted->fetch();
+
+            if($resultVoteUser['hasVoted']==0)
+            {
+                echo('<br>N\' a pas voté');
+            }
+            else
+                echo('<br>A voté');
+
+            $requeteHasVoted->closeCursor();
+
+
+            ?>
 		</div>
+        <div id="votes">
+            <a href="index.php?Id_Guide=<?php echo $g ?>&votes=like" > Pouce Vert : </a>
+
+            <?php
+
+
+
+            if(isset($_GET['votes']))
+            {
+                if($_GET['votes']=='dislike')
+                $requetSubVote = $bdd->prepare('UPDATE votes SET nbDown = nbDown+1 WHERE idGuide =
+                (SELECT idGuide FROM votesByUser WHERE idGuide= ? AND idUser = ? AND hasVoted=0);
+                UPDATE votesbyuser SET hasvoted=1 WHERE idUser = ? AND idGuide = ? AND hasVoted=0; ');
+
+
+                else if($_GET['votes']=='like')
+                {
+                    $requetSubVote = $bdd->prepare('UPDATE votes SET nbUp = nbUp+1 WHERE idGuide =
+                (SELECT idGuide FROM votesByUser WHERE idGuide= ? AND idUser = ? AND hasVoted=0);
+                UPDATE votesbyuser SET hasvoted=1 WHERE idUser = ? AND idGuide = ? AND hasVoted=0; ');
+                }
+                $requetSubVote->execute(array($g, $_SESSION['id'],$_SESSION['id'],$g ));
+                $requetSubVote->closeCursor();
+            }
+
+
+
+            $requeteLikes = $bdd->prepare('SELECT nbUp,nbDown FROM votes WHERE idGuide =?');
+            $requeteLikes->execute(array(intval($item['Id_Guide'])));
+
+
+            while($likes = $requeteLikes->fetch()){
+
+            echo($likes['nbUp']);
+
+
+
+               ?>
+
+                <a href="index.php?Id_Guide=<?php echo $g ?>&votes=dislike"> Pouce Rouge : </a>
+            <?php
+                echo($likes['nbDown']);
+
+            }
+
+            $requeteLikes->closeCursor();
+
+            ?>
+
+        </div>
 		<div id="pub2"></div>
+
 
 	</div>
 	<?php
 }
+$requete->closeCursor();
 ?>
