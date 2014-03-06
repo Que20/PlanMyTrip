@@ -73,8 +73,24 @@ try{
                             Tags : <a href="#"><span class="resultTag"> Culture </span></a>, <a href="#"><span class="resultTag"> Rock </span></a>
                         </div>
                         <div class="resultVote">
-                            <div class="greenthumb"><img class="thumb" src="../img/up.png"><br>25</div>
-                            <div class="redthumb"><img class="thumb" src="../img/down.png"><br>25</div>
+                            <div class="greenthumb"><img class="thumb" src="../img/up.png"><br>
+                            <?php
+                            $votesQuery = $bdd->prepare('SELECT nbUp,nbDown FROM votes WHERE idGuide =?');
+                            $votesQuery->execute(array(intval($item['Id_Guide'])));
+                            while($votesResult = $votesQuery->fetch())
+                            {
+                                echo $votesResult['nbUp'];
+
+                            ?>
+                            </div>
+                            <div class="redthumb"><img class="thumb" src="../img/down.png"><br>
+                                <?php
+                                echo $votesResult['nbDown'];
+                                }
+
+                                $votesQuery->closeCursor();
+                                ?>
+                            </div>
                         </div>
                         <br>
                     </td>
