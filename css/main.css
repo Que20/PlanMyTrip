@@ -126,7 +126,11 @@ h1 {
     font-weight: normal;
     color: white;
     font-size: 30px;
-    text-shadow: 0px 0px 5px black;
+    text-shadow:
+    black 2px 2px, 
+    black -2px 2px, 
+    black -2px -2px, 
+    black 2px -2px;
     letter-spacing: 0px;
     margin-top: 0px;
 }
@@ -206,10 +210,15 @@ h1 {
 #textPres {
     padding-top: 70px;
     padding-left: 20%;
-    color:#FFA500;
+    color:white;
     font-size: 30px;
-    text-shadow:5px 5px 2px black;
+    -text-shadow:5px 5px 2px black;
     font-family: "Poetsen One";
+    text-shadow:
+    black 2px 2px, 
+    black -2px 2px, 
+    black -2px -2px, 
+    black 2px -2px; 
 }
 
 #search {
