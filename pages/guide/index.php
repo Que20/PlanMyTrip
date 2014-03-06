@@ -41,91 +41,60 @@ while($item=$requete->fetch()){
             {
                 $create=true;
             }
-            else if($resultVoteUser['hasVoted']==0)
-            {
-                echo('<br>N\' a pas voté');
-            }
-            else if($resultVoteUser['hasVoted']==1)
-                echo('<br>A voté');
 
 
             $requeteHasVoted->closeCursor();
 
 
             ?>
-		</div>
+		
         <div id="votes">
-            <a href="index.php?Id_Guide=<?php echo $g ?>&votes=like" > Pouce Vert : </a>
-
+            <a style="color:black;text-align:center;" href="index.php?Id_Guide=<?php echo $g ?>&votes=like" ><img src="../../img/up.png"></a>
             <?php
-
-
-
-            if(isset($_GET['votes']))
-            {
-                if($_GET['votes']=='dislike' && !isset($create))
-                {
+            if(isset($_GET['votes'])){
+                if($_GET['votes']=='dislike' && !isset($create)){
                  $requetSubVote = $bdd->prepare('UPDATE votes SET nbDown = nbDown+1 WHERE idGuide =
                 (SELECT idGuide FROM votesByUser WHERE idGuide= ? AND idUser = ? AND hasVoted=0);
                 UPDATE votesbyuser SET hasvoted=1 WHERE idUser = ? AND idGuide = ? AND hasVoted=0; ');
                     $requetSubVote->execute(array($g, $_SESSION['id'],$_SESSION['id'],$g ));
                 }
 
-                else if($_GET['votes']=='like' && !isset($create))
-                {
+                else if($_GET['votes']=='like' && !isset($create)){
                     $requetSubVote = $bdd->prepare('UPDATE votes SET nbUp = nbUp+1 WHERE idGuide =
                 (SELECT idGuide FROM votesByUser WHERE idGuide= ? AND idUser = ? AND hasVoted=0);
                 UPDATE votesbyuser SET hasvoted=1 WHERE idUser = ? AND idGuide = ? AND hasVoted=0; ');
                     $requetSubVote->execute(array($g, $_SESSION['id'],$_SESSION['id'],$g ));
                 }
 
-                else if($_GET['votes']=='dislike' && $create==true)
-                {
+                else if($_GET['votes']=='dislike' && $create==true){
                     $requetSubVote = $bdd->prepare("INSERT INTO `planmytrip`.`votesbyuser` (`id`,`idUser`, `idGuide`, `hasVoted`) VALUES (?,?,?,?);
                                                     UPDATE votes SET nbDown = nbDown+1 WHERE idGuide =
                                                     (SELECT idGuide FROM votesByUser WHERE idGuide= ? AND idUser = ? AND hasVoted=1);");
                     $requetSubVote->execute(array(NULL,$_SESSION['id'],$g,1,$g,$_SESSION['id']));
 
                 }
-
-                else if($_GET['votes']=='like' && $create==true)
-                {
+                else if($_GET['votes']=='like' && $create==true){
                     $requetSubVote = $bdd->prepare("INSERT INTO `planmytrip`.`votesbyuser` (`id`, `idUser`, `idGuide`, `hasVoted`) VALUES (?,?,?,?);
                                                     UPDATE votes SET nbUp = nbUp+1 WHERE idGuide =
                                                     (SELECT idGuide FROM votesByUser WHERE idGuide= ? AND idUser = ? AND hasVoted=1);");
                     $requetSubVote->execute(array(NULL,$_SESSION['id'],$g,1,$g,$_SESSION['id']));
-
                 }
-
-
                 $requetSubVote->closeCursor();
             }
-
-
-
             $requeteLikes = $bdd->prepare('SELECT nbUp,nbDown FROM votes WHERE idGuide =?');
             $requeteLikes->execute(array(intval($item['Id_Guide'])));
-
-
             while($likes = $requeteLikes->fetch()){
-
-            echo($likes['nbUp']);
-
-
-
-               ?>
-
-                <a href="index.php?Id_Guide=<?php echo $g ?>&votes=dislike"> Pouce Rouge : </a>
+            	?>
+            	<span style="color:green;"><?php echo($likes['nbUp']);?></span>
+                <a style="color:black" href="index.php?Id_Guide=<?php echo $g ?>&votes=dislike"><img src="../../img/down.png"></a>
+            	<span style="color:red;text-align:center;"><?php echo($likes['nbDown']); ?></span>
             <?php
-                echo($likes['nbDown']);
-
             }
-
             $requeteLikes->closeCursor();
-
             ?>
 
         </div>
+    </div>
 		<div id="pub2"></div>
 
 

@@ -10,7 +10,7 @@
     <title>PlanMyTrip</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/favicon.ico" />
 
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/css/normalize.min.css">
     <link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/css/main.css">
