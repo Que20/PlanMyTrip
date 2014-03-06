@@ -27,7 +27,7 @@
 		if ($err) {
 		?>
 		<div id="regError">
-			Erreur !<br>
+			Oups..!<br>
 			<?php
 			if($mdpE == 1){
 				echo "Le mot de passe doit comporter au moins 8 characteres.";

@@ -1,7 +1,14 @@
-<script src="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/js/tiny.editor.packed.js"></script>
-<link rel="stylesheet" href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/css/tinyeditor.css">
+  	<script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/js/jquery-1.11.0.min.js"></script>
+  	<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+	<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+						
 <?php
+	session_start();
 	include('../topbar.php');
+	$e = 0;
+	if(isset($_GET['error'])){
+		$e = 1;
+	}
 ?>
 
 <div id="newGuidePage">
@@ -9,29 +16,37 @@
 	<div id="newGuide">
 
 		<span style="font-size:30px;">Proposer un nouveau guide :</span><br><br>
+		<?php
+		if($e == 1){
+		?>
+		<div id="regError" style="width:610;">
+			ATTENTION : Tout les champs sont requis !
+		</div>
+		<?php
+		}
+		?>
 		<div id="indications">
-			<?php echo $_SESSION['id']; ?>
 			Proposer un guide est la meilleure façon de participer à la vie de PlanMyTrip.<br>
 			Ce guide sera accessible à tout les visiteurs de PlanMyTripp (inscrits ou non!).<br>
 			Chaque guide doit être validé par un membre de notre équipe de modération (sous 48h).<br>
 		</div>
 		<span style="font-weight:bold">Evitez les fautes d'orthographes, soyez le plus clair et précis possible.</span><br>
 
-		<form method=post action="/PlanMyTrip/pages/loger/login.php">
+		<form method=post action="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/pages/new_guide/post.php">
 			Pour commencer, entrez les informations concernant votre séjour :<br><br>
 			<table>
 			<tr>
 				<td>Pays</td>
-				<td><input style="height:30px;width:200px;" type=textname="pseudo" placeholder=" Pays"></td>
+				<td><input style="height:30px;width:200px;" type=text name="pays" placeholder=" Pays"></td>
 			</tr>
 			<tr>
 				<td>Ville</td>
-				<td><input style="height:30px;width:200px;" type=text name="pseudo" placeholder=" Ville"></td>
+				<td><input style="height:30px;width:200px;" type=text name="ville" placeholder=" Ville"></td>
 			</tr>
 			<tr>
 				<td style="width:150px;">durée du séjour</td>
 				<td>
-					<SELECT style="width:200px;" name="fonction">
+					<SELECT style="width:200px;" name="duration">
 					<OPTION VALUE="1">1</OPTION>
 					<OPTION VALUE="2">2</OPTION>
 					<OPTION VALUE="3">3</OPTION>
@@ -51,7 +66,7 @@
 			À présent, partagez votre experience...<br>
 			Conseil : proposez votre guide sous forme de liste.
 
-			<textarea id="tinyeditor"></textarea>
+			<textarea id="input" cols="80" rows="20" name="input"></textarea>
 
 			N'hésitez pas à ajouter des photos, des cartes ou des liens en tout genre.<br>
 			Les itinéraires Google Maps ou autres sont les bienvenues.<br><br>
@@ -59,29 +74,7 @@
 			<input type="submit" style="display:block;margin:auto;width:300px;" value="Soumettre" id="propose" name="loginEnt"><br><br>
 		</form>
 
-		<script>
-		var editor = new TINY.editor.edit('editor', {
-			id: 'tinyeditor',
-			width: 600,
-			height: 275,
-			cssclass: 'tinyeditor',
-			controlclass: 'tinyeditor-control',
-			rowclass: 'tinyeditor-header',
-			dividerclass: 'tinyeditor-divider',
-			controls: ['bold', 'italic', 'underline', 'strikethrough', '|', 'subscript', 'superscript', '|',
-				'orderedlist', 'unorderedlist', '|', 'outdent', 'indent', '|', 'leftalign',
-				'centeralign', 'rightalign', 'blockjustify', '|', 'unformat', '|', 'undo', 'redo', 'n',
-				'font', 'size', 'style', '|', 'image', 'hr', 'link', 'unlink', '|', 'print'],
-			footer: true,
-			fonts: ['Verdana','Arial','Georgia','Trebuchet MS'],
-			xhtml: true,
-			cssfile: 'custom.css',
-			bodyid: 'editor',
-			footerclass: 'tinyeditor-footer',
-			toggle: {text: 'source', activetext: 'wysiwyg', cssclass: 'toggle'},
-			resize: {cssclass: 'resize'}
-		});
-		</script>
+		
 	</div>
 	<div id="help">
 		Voir un exemple de guide rédigé

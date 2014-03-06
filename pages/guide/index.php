@@ -17,7 +17,7 @@ while($item=$requete->fetch()){
 	?>
 	<div id="guidePage">
 		<div id="guideInfos">
-			<span id="guideName"><?php echo $item['Titre'] ?></span><br>
+			<span id="guideName"><?php echo $item['Ville'].", ".$item['Pays']." : ".$item['Titre'] ?></span><br>
 			<span id="guideBy">Soumis par l'utilisateur : <?php echo $item['Id_User'] ?> <br> le : xx/xx/xxxx</span>
 		</div>
 		<div id="pub1"></div>

@@ -1,15 +1,15 @@
 <?php
 session_start();
 include("pages/topbar.php");
-
 ?>
-
             <div id="content">
                 <div id="search">
-                    <form action="search/index.php?<?php echo isset($_GET['search'])?>">
+                    <form action="search/index.php?<?php echo isset($_GET['search']);?>&<?php echo isset($_GET['duration']);?>">
                     <span style="font-size:25px;text-shadow:0px 0px 2px #999999;">Je recherche un guide pour :</span><br>
+                    <input type="hidden" name="duration" value="n">
                     <input type=text class="searchBar" name="search" placeholder=" Entrez le nom d'une ville">
                     <input type="submit" class="searchGo" value="GO">
+                    </form>
                 </div>
             </div>
             <div id="intro">
