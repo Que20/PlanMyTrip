@@ -17,11 +17,11 @@ if(isset($_POST['loginEnt']))
     $resultat = $req->fetch();
 //Si pas de resultat
     if (!$resultat)
-    {
-        echo 'Mauvais identifiant ou mot de passe !';
-    }
+    { ?>
+        <br><br><br><br><br><div id="logErr"> Mauvais identifiant ou mot de passe </div>
+    <?php }
     if($resultat['isValidate']=='0')
-    {
+    { 
         echo "Connexion refusée, votre compte n'est pas activé, veuillez confirmer votre compte en cliquant sur le lien qui vous a été envoyer par mail
         <br> Vous serez bientôt redirigé vers la page d'accueil";
         ?>

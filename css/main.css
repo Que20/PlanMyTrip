@@ -385,7 +385,7 @@ h1 {
     width:390px;
     height:50px;
     border:1px solid #d43f3a;
-    background-color:#d9534f;
+    background-color:#FF8A8A;
     color:white;
     margin-bottom:20px;
     border-radius:5px;
@@ -562,6 +562,24 @@ tr.result td:hover {
     border:1px solid #00C21A;
 }
 
+#coError {
+    border:1px solid #d43f3a;
+    background-color:#FF8A8A;
+    clear:both;
+    height: 30px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#logErr {
+    width: 500px;
+    height: 30px;
+    padding: 5px;
+    margin: auto;
+    border-radius: 5px;
+    border:1px solid #d43f3a;
+    background-color:#FF8A8A;
+}
 /* ==========================================================================
    Media Queries
    ========================================================================== */

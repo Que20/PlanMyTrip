@@ -12,6 +12,13 @@
 ?>
 
 <div id="newGuidePage">
+	<?php
+	if(!isset($_SESSION['id']) AND !isset($_SESSION['pseudo'])){
+		?>
+		<div id="coError"> vous devez être connécté pour afficher cette page !</div>
+		<?php
+	}else{
+	?>
 	<div id="pub1"></div>
 	<div id="newGuide">
 
@@ -79,4 +86,5 @@
 	<div id="help">
 		Voir un exemple de guide rédigé
 	</div>
+	<?php } ?>
 </div>
