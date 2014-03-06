@@ -40,6 +40,7 @@
 		</div>
 	</div>
 	<?php
+	}
 	else{
 		?>
 		<h1>Accès non autorisé</h1>
