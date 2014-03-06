@@ -397,6 +397,7 @@ h1 {
     padding-left: 20px;
     padding-top: 20px;
     padding-right: 20px;
+    margin-bottom: 100px;
 }
 
 #regError{
@@ -410,6 +411,15 @@ h1 {
     padding-left:5px;
     padding-right:5px;
     font-size:15px;
+}
+
+#backBtn {
+    color:white;
+    margin-top: 100px;
+    padding: 5px;
+    border:1px solid #428bca;
+    background-color: #428bca;
+    border-radius: 5px;
 }
 
 .searchBarSearch {
@@ -610,12 +620,14 @@ table.tableMod td{
 }
 
 #footer {
+    position: relative;
     width: 100%;
+    clear:both;
     margin:auto;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     font-size: 13px;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 0px;
     background: linear-gradient(to bottom, #E6E6E6, white);
 }
 
@@ -625,6 +637,10 @@ table.tableMod td{
 
 h6 {
     font-size: 13px;
+}
+
+#copyrights {
+    margin-top: -40px;
 }
 /* ==========================================================================
    Media Queries

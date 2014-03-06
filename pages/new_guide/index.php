@@ -38,10 +38,13 @@
 			Chaque guide doit être validé par un membre de notre équipe de modération (sous 48h).<br>
 		</div>
 		<span style="font-weight:bold">Evitez les fautes d'orthographes, soyez le plus clair et précis possible.</span><br>
-
 		<form method=post action="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/pages/new_guide/post.php">
 			Pour commencer, entrez les informations concernant votre séjour :<br><br>
 			<table>
+			<tr>
+				<td>Entrez un titre à votre guide </td>
+				<td><input style="height:30px;width:200px;" type=text name="titre" placeholder=" Titre"></td>
+			</tr>
 			<tr>
 				<td>Pays</td>
 				<td><input style="height:30px;width:200px;" type=text name="pays" placeholder=" Pays"></td>
@@ -88,3 +91,4 @@
 	</div>
 	<?php } ?>
 </div>
+<?php include("../footer.php"); ?>

@@ -107,3 +107,4 @@ try{
 	</div> 
 	</div>
 </div>
+<?php include("../pages/footer.php"); ?>

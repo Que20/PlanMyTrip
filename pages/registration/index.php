@@ -76,3 +76,5 @@
 - Des bons plans exceptionnels<br><br>
 et bien plus encore !
 </div>
+
+<?php include("../footer.php"); ?>

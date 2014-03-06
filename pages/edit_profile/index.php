@@ -69,3 +69,4 @@
 		<?php
 	}
 ?>
+<?php include("pages/footer.php"); ?>

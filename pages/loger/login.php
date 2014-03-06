@@ -41,3 +41,4 @@ if(isset($_POST['loginEnt']))
     }
 }
 ?>
+<?php include("../footer.php"); ?>
