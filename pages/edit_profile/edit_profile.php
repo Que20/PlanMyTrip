@@ -21,7 +21,7 @@
 		$bmail = true;
 		$requete = $bdd->prepare('UPDATE user SET Mail = ? WHERE Id_User = ?');
 		$requete->execute(array($_POST['mail'], $_SESSION['id']));
-		$bdd->closeCursor();
+		$requete->closeCursor();
 	}
 	else
 		$bmail = false;
@@ -32,7 +32,7 @@
 		$bname = true;
 		$requete = $bdd->prepare('UPDATE user SET Fullname = ? WHERE Id_User = ?');
 		$requete->execute(array($_POST['realname'], $_SESSION['id']));
-		$bdd->closeCursor();
+		$requete->closeCursor();
 	}
 	else
 		$bname = false;
@@ -48,6 +48,7 @@
             setTimeout('window.location.replace("index.php")',3000);
         </script>
 		<?php
+	}
 	else{
 		?>
 		<div id='login_status'>

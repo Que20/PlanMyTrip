@@ -27,13 +27,13 @@
 			<form action="edit_password.php" method="post" enctype="multipart/form-data">
 				<table border="0">
 					<tr>
-				<td style="width:200px;">Ancien mot de passe</td><td><input type=password class="editmdp" name="oldmdp"></td>
+				<td>Ancien mot de passe</td><td><input type=password class="editmdp" name="oldmdp" required></td>
 					</tr>
 					<tr>
-				<td >Nouveau mot de passe</td><td><input type=password class="editmdp" name="newmdp" ></td>
+				<td >Nouveau mot de passe</td><td><input type=password class="editmdp" name="newmdp" required></td>
 					</tr>
 					<tr>
-				<td >Confirmation</td><td><input type=password class="editmdp" name="confnewmdp" ></td>
+				<td >Confirmation</td><td><input type=password class="editmdp" name="confnewmdp" required></td>
 					</tr>
 				</table>
 				<br><input type=submit class="validateEdition" value="Valider">
