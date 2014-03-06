@@ -33,9 +33,9 @@ else{
 	?>
 	<br>Merci de votre participation !<br>
 	Votre guide sera en ligne apres modération (&lsaquo; 48 heures).<br><br>
-</div>
+</div><br><br><br>
 <?php
 }
 ?>
 
-<?php include("../../../footer.php"); ?>
+<?php include("../footer.php"); ?>
