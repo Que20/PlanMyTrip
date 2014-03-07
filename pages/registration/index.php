@@ -52,7 +52,7 @@
 			<td >Nom d'utilisateur</td><td><input type=text class="regName" name="pseudo" required></td><td></td>
 				</tr>
 				<tr>
-			<td >Email</td><td><input style="width:223px;" type=email class="regMail" name="mail" required pattern="{20}"></td><td></td>
+			<td >Email</td><td><input style="width:200px;" type=email class="regMail" name="mail" required pattern="{20}"></td><td></td>
 				</tr>
 				<tr>	
 			<td >Mot de passe</td><td><input type=password class="regPassword" name="mdp" required></td><td style="font-size:12px;">> 8 charactères</td>

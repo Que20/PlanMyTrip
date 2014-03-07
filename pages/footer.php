@@ -6,6 +6,6 @@
 	</div>
 	<br>
 	<div id="copyrights">
-		<h6>copyrights (c) 2014 Maarek, Fayette, Pequin</h6>
+		<h6 style="font-weight:normal;">copyrights (c) 2014 PlanMyTrip dev Team qui roxx de la mort du poney/licorne avec Satan mon meilleur ami. \o/</h6>
 	</div>
 </div>

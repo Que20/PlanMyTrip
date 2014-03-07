@@ -1,4 +1,3 @@
-$(function() {
 this.html = this.html || {};
 
 html.Menu = function(div, values) {
@@ -36,7 +35,7 @@ html.Form = function(div, placeholder, name, type, required){
 	this.name = name;
 	this.type = type;
 	this.required = required;
-	
+	console.log(name);
 }
 
 html.Form.prototype.init = function(){
@@ -74,12 +73,3 @@ accountMenuBar.init();
 
 
 //$('#onglet1').onclick
-
-
-}
-
-
-
-
-
-
