@@ -2,12 +2,9 @@
 session_start();
 include("../../../pages/topbar.php");
 ?>
-<div id="blanc" style="padding-top:50px;"></div>
-<div id="accountMenuBar">
-	<div class="accountMenuCat">
-		Hello
-	</div>
-	<div class="accountMenuCat">
-		World
-	</div>
+<div id="blanc" style="padding-top:70px;"></div>
+<div id ="accountManagment">
+
 </div>
+
+<script type="text/javascript" src="script.js"></script>
