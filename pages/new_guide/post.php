@@ -36,12 +36,10 @@ else{
     $requestGetId = $bdd->prepare('SELECT Id_Guide FROM guide WHERE Titre = (?) AND Id_User = ? AND Contenu = ?');
     $requestGetId->execute(array($titre,$_SESSION['id'],$contenu));
     $getIdGuide = $requestGetId->fetch();
-    $getIdGuide2 = $getIdGuide['Id_Guide'];
-    echo($getIdGuide2);
     $requestGetId->closeCursor();
 
     $requestVote = $bdd->prepare('INSERT INTO votes(idGuide, nbDown, nbUp) VALUES (?,?,?)');
-    $requestVote->execute(array($getIdGuide2,0,0));
+    $requestVote->execute(array($getIdGuide['Id_Guide'],0,0));
     $requestVote->closeCursor();
 	?>
 	<br>Merci de votre participation !<br>
