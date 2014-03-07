@@ -36,7 +36,7 @@
 	
 	//Requête de mise en base
 	$request = $bdd->prepare('INSERT INTO User(FullName, Pseudo, Mail, Password, ValidateKey, IsValidate) VALUES(?,?,?,?,?,?)');
-	$request->execute(array($_POST['realname'], $_POST['pseudo'], $_POST['mail'], $mdp, $validate_key, 0));
+	$request->execute(array(htmlentities($_POST['realname'],ENT_QUOTES), htmlentities($_POST['pseudo'],ENT_QUOTES), htmlentities($_POST['mail'],ENT_QUOTES), $mdp, $validate_key, 0));
 	
 	//Envoi du mail de confirmation
 	

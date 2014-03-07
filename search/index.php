@@ -22,7 +22,7 @@ try{
 	</div> 
 
 	<div id="resultsItems"><br>
-        <form action="?<?php echo isset($_GET['search'])."&".isset($GET_['duration']) ?>"  style="padding-bottom:10px;border-bottom:1px solid #D9D9D9;margin-bottom:20px;">
+        <form action="?<?php echo isset($s)."&".isset($d) ?>"  style="padding-bottom:10px;border-bottom:1px solid #D9D9D9;margin-bottom:20px;">
             <span style="font-size:20px;margin-left:20px;">Nouvelle recherche</span> <input type=text class="searchBarSearch" name="search" placeholder=" Entrez le nom d'une ville" value="<?php echo $s ?>">
             Durée du séjour :
             <SELECT style="width:60px;" name="duration">
