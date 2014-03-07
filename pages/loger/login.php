@@ -18,7 +18,7 @@ if(isset($_POST['loginEnt']))
 //Si pas de resultat
     if (!$resultat)
     { ?>
-        <br><br><br><br><br><div id="logErr"> Mauvais identifiant ou mot de passe </div>
+        <br><br><br><br><br><div id="logErr"> Mauvais identifiant ou mot de passe </div><br><br><br>
     <?php }
     if($resultat['isValidate']=='0')
     { 
