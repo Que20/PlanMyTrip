@@ -692,6 +692,14 @@ h6 {
 .selectedCat{
     border-bottom: 1px solid white;
 }
+
+#user_content{
+    border:1px solid black;
+    width: 600px;
+    margin: auto;
+    padding: 5px;
+}
+
 /* ==========================================================================
    Media Queries
    ========================================================================== */

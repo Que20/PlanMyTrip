@@ -18,6 +18,8 @@
 		<?php 
 	} 
 	?>
-	<div id="user_content" style="width:800px; height:650px; margin : auto; text-align: center;"></div>
+	<div id="user_content">
+
+	</div>
 	<?php include("../../footer.php"); 
 ?>
