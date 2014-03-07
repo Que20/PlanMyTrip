@@ -1,5 +1,5 @@
 this.html = this.html || {};
-
+var bool = 1;
 html.Menu = function(div, values) {
 	this.renderTo = div;
 	this.items = values;
@@ -29,27 +29,30 @@ html.Menu.prototype.init = function() {
 	});
 }
 
-html.Form = function(global, sub, items){
+html.Form = function(global, sub, items, bool){
 	this.global = global,
 	this.sub = sub;
 	this.items = items;
+	this.bool = bool;
 	
 }
 
 html.Form.prototype.init = function(){
-	var me = this;
-	me.sub.remove();
-	me.global.append(me.sub);
-	me.form = $('<form id="info_form"/>');
-	me.table = $('<table />');
-	
-	me.sub.append(me.form);
-	me.form.append(me.table);
-	$(this.items).each(function(index, item){
+	if(bool == 1){
+		var me = this;
+		me.global.append(me.sub);
+		me.form = $('<form id="info_form"/>');
+		me.table = $('<table />');
 		
-		me.table.append('<tr><td>'+item.label+'</td><td><input type="'+item.type+'" placeholder="'+item.placeholder+'" name="'+item.name+'" class="'+item.cls+'" '+item.required+' /></td></tr>');
-		$(item).addClass('form_element');
-	});
+		me.sub.append(me.form);
+		me.form.append(me.table);
+		$(this.items).each(function(index, item){
+			
+			me.table.append('<tr><td>'+item.label+'</td><td><input type="'+item.type+'" placeholder="'+item.placeholder+'" name="'+item.name+'" class="'+item.cls+'" '+item.required+' /></td></tr>');
+			$(item).addClass('form_element');
+		});
+	}
+	bool = 0;
 }
 
 
@@ -95,7 +98,7 @@ var accountMenuBar = new html.Menu($("#accountManagment"), [
 										required : "",
 										cls : "form_element"
 									}
-									]);
+									], bool);
 									accountInfoForm.init();
 								}
 							},
