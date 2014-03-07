@@ -13,7 +13,8 @@ if ($pays == "" || $ville == "" || $duration == "" || $contenu == "") {
 else{
 	$date = date("d-m-Y");
 	$heure = date("H:i:s");
-	$stamp = $date." ".$heure
+	$stamp = $date." ".$heure;
+    echo($stamp);
 ?>
 <div style="padding-top:100px"></div>
 <div id="sendGuide">
@@ -28,8 +29,8 @@ else{
 	{
 			die('Erreur : ' . $e->getMessage());
 	}
-	$request = $bdd->prepare('INSERT INTO guide(Titre, Contenu, Id_User, Pays, Ville, Datetime, duration) VALUES(?,?,?,?,?,?,?)');
-	$request->execute(array($titre, $contenu, $_SESSION['id'], $pays, $ville, NULL, $duration));
+	$request = $bdd->prepare('INSERT INTO guide(Titre, Contenu, Id_User, Pays, Ville, Datetime, duration, isValide) VALUES(?,?,?,?,?,?,?,?)');
+	$request->execute(array($titre, $contenu, $_SESSION['id'], $pays, $ville, NULL, $duration, 1));
     $request->closeCursor();
 
     $requestGetId = $bdd->prepare('SELECT Id_Guide FROM guide WHERE Titre = (?) AND Id_User = ? AND Contenu = ?');

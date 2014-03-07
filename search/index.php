@@ -50,15 +50,15 @@ try{
             }
             else{
                 if($d == 'n'){
-                    $requeteG = $bdd->prepare("SELECT * FROM guide WHERE ville LIKE ? ORDER BY Id_Guide");
-                    $requeteG->execute(array('%'.mysql_real_escape_string($s).'%'));
+                    $requeteG = $bdd->prepare("SELECT * FROM guide WHERE ville LIKE ? AND isValide = ? ORDER BY Id_Guide");
+                    $requeteG->execute(array('%'.mysql_real_escape_string($s).'%',1));
                 }elseif($d == 'p'){
                     $p = 10;
-                    $requeteG = $bdd->prepare("SELECT * FROM guide WHERE ville LIKE ? AND duration >= ? ORDER BY Id_Guide");
-                    $requeteG->execute(array('%'.mysql_real_escape_string($s).'%', $p));
+                    $requeteG = $bdd->prepare("SELECT * FROM guide WHERE ville LIKE ? AND duration >= ? AND isValide = ? ORDER BY Id_Guide");
+                    $requeteG->execute(array('%'.mysql_real_escape_string($s).'%', $p,1));
                 }else{
-                    $requeteG = $bdd->prepare("SELECT * FROM guide WHERE ville LIKE ? AND duration LIKE ? ORDER BY Id_Guide");
-                    $requeteG->execute(array('%'.mysql_real_escape_string($s).'%', $d));
+                    $requeteG = $bdd->prepare("SELECT * FROM guide WHERE ville LIKE ? AND duration LIKE ? AND isVailde = ? ORDER BY Id_Guide");
+                    $requeteG->execute(array('%'.mysql_real_escape_string($s).'%', $d,1));
                 }
                 while($item=$requeteG->fetch()){
                     $requeteN = $bdd->prepare("SELECT Pseudo FROM user WHERE Id_User LIKE ?");

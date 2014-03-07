@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Jeu 06 Mars 2014 à 18:20
+-- Généré le: Ven 07 Mars 2014 à 10:02
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.12
 
@@ -49,18 +49,19 @@ CREATE TABLE IF NOT EXISTS `guide` (
   `Ville` text,
   `Datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `duration` int(1) NOT NULL,
-  `Upvote` int(11) DEFAULT NULL,
-  `Downvote` int(11) DEFAULT NULL,
+  `isValide` tinyint(1) NOT NULL,
   PRIMARY KEY (`Id_Guide`),
   KEY `Id_User` (`Id_User`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Contenu de la table `guide`
 --
 
-INSERT INTO `guide` (`Id_Guide`, `Titre`, `Contenu`, `Id_User`, `Pays`, `Ville`, `Datetime`, `duration`, `Upvote`, `Downvote`) VALUES
-(3, 'YOLO', 'AAAyolo', 8, 'France', 'Paris', '2014-03-06 16:27:34', 2, NULL, NULL);
+INSERT INTO `guide` (`Id_Guide`, `Titre`, `Contenu`, `Id_User`, `Pays`, `Ville`, `Datetime`, `duration`, `isValide`) VALUES
+(3, 'YOLO', 'AAAyolo', 8, 'France', 'Paris', '2014-03-06 16:27:34', 2, 1),
+(13, 'Vancances1', 'AAAAAAAAAAAAAAAAAAaaa<br>AAA<br>AX<br>', 8, 'Brésil', 'Fortaleza', '2014-03-07 09:48:42', 1, 1),
+(14, 'AAXX', 'IHIBBVIVOI<br>N<br>', 8, 'WWW', 'WWWW', '2014-03-07 10:00:06', 7, 1);
 
 -- --------------------------------------------------------
 
@@ -139,7 +140,9 @@ CREATE TABLE IF NOT EXISTS `votes` (
 --
 
 INSERT INTO `votes` (`idGuide`, `nbDown`, `nbUp`) VALUES
-(3, 0, 1);
+(3, 0, 1),
+(13, 0, 0),
+(14, 0, 0);
 
 -- --------------------------------------------------------
 
