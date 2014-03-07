@@ -29,7 +29,19 @@ else{
 			die('Erreur : ' . $e->getMessage());
 	}
 	$request = $bdd->prepare('INSERT INTO guide(Titre, Contenu, Id_User, Pays, Ville, Datetime, duration) VALUES(?,?,?,?,?,?,?)');
-	$request->execute(array($titre, $contenu, $_SESSION['id'], $pays, $ville, $stamp, $duration));
+	$request->execute(array($titre, $contenu, $_SESSION['id'], $pays, $ville, NULL, $duration));
+    $request->closeCursor();
+
+    $requestGetId = $bdd->prepare('SELECT Id_Guide FROM guide WHERE Titre = (?) AND Id_User = ? AND Contenu = ?');
+    $requestGetId->execute(array($titre,$_SESSION['id'],$contenu));
+    $getIdGuide = $requestGetId->fetch();
+    $getIdGuide2 = $getIdGuide['Id_Guide'];
+    echo($getIdGuide2);
+    $requestGetId->closeCursor();
+
+    $requestVote = $bdd->prepare('INSERT INTO votes(idGuide, nbDown, nbUp) VALUES (?,?,?)');
+    $requestVote->execute(array($getIdGuide2,0,0));
+    $requestVote->closeCursor();
 	?>
 	<br>Merci de votre participation !<br>
 	Votre guide sera en ligne apres modération (&lsaquo; 48 heures).<br><br>
