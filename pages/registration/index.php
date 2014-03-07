@@ -46,19 +46,19 @@
 		<form action="registration.php" method="post">
 			<table border="0">
 				<tr>
-			<td style="width:200px;">Nom Complet</td><td><input type=text class="regRealname" name="realname" required></td>
+			<td style="width:200px;">Nom Complet</td><td><input type=text class="regRealname" name="realname" required></td><td></td>
 				</tr>
 				<tr>
-			<td >Nom d'utilisateur</td><td><input type=text class="regName" name="pseudo" required></td>
+			<td >Nom d'utilisateur</td><td><input type=text class="regName" name="pseudo" required></td><td></td>
 				</tr>
 				<tr>
-			<td >Email</td><td><input style="width:223px;" type=email class="regMail" name="mail" required></td>
+			<td >Email</td><td><input style="width:223px;" type=email class="regMail" name="mail" required pattern="{20}"></td><td></td>
 				</tr>
 				<tr>	
-			<td >Mot de passe</td><td><input type=password class="regPassword" name="mdp" required></td>
+			<td >Mot de passe</td><td><input type=password class="regPassword" name="mdp" required></td><td style="font-size:12px;">> 8 charactères</td>
 				</tr>
 				<tr>
-			<td >Confirmation</td><td><input type=password class="regPassword" name="mdp2" required></td>
+			<td >Confirmation</td><td><input type=password class="regPassword" name="mdp2" required></td><td></td>
 				</tr>
 			</table>
 			<input type="checkbox" name="licence"> 

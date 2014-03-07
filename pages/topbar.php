@@ -53,8 +53,8 @@
         {
             ?>
             <div id="loged">
-                <span id="nameLoged">Bonjour <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/pages/user/account/index.php"><?php echo $_SESSION['pseudo']; ?></a></span>
-                <a href="/PlanMyTrip/pages/loger/logout.php" style="color:red;"> Deconnexion </a>
+                <span id="nameLoged">Bonjour <?php echo $_SESSION['pseudo']; ?><span class="account"> <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/pages/user/account/index.php">Mon compte <img style="margin-left:10px;width:15px;height:15px;margin-top:-5px;" src="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/img/iconmonstr-user-6-icon-24.png"></span></a></span>
+                <a href="/PlanMyTrip/pages/loger/logout.php" style="color:red;padding-left:5px;"> Deconnexion </a>
             </div>
             <?php
         }
@@ -62,7 +62,7 @@
         {
             ?>
 
-            <form method=post action="/PlanMyTrip/pages/loger/login.php">
+            <form method=post  style="float: right;margin-right: 10px;" action="/PlanMyTrip/pages/loger/login.php">
                 <input type=text class="loginName" name="pseudo" placeholder=" Pseudo">
                 <input type=password class="loginPassword" name="password" placeholder=" Mot de Passe">
                 <input type="submit" class="go" value="login" name="loginEnt">

@@ -1,7 +1,7 @@
 <div id="footer">
 	<div id="footerLinks">
 		<a href="#">Qui sommes-nous</a>
-		<a href="#">Mentions légales</a>
+		<a href="legal.html">Mentions légales</a>
 		<a href="#">Contact</a>
 	</div>
 	<br>
