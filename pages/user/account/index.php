@@ -18,6 +18,6 @@
 		<?php 
 	} 
 	?>
-	<div id="blanc" style="padding-top:300px;"></div>
+	<div id="user_content" style="width:800px; height:650px; margin : auto; text-align: center;"></div>
 	<?php include("../../footer.php"); 
 ?>

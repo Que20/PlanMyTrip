@@ -1,3 +1,4 @@
+$(function() {
 this.html = this.html || {};
 
 html.Menu = function(div, values) {
@@ -29,19 +30,40 @@ html.Menu.prototype.init = function() {
 	});
 }
 
-sayHello = function(e) {
-	console.log("hello");
+html.Form = function(div, placeholder, name, type, required){
+	this.renderTo = div;
+	this.placeholder = placeholder;
+	this.name = name;
+	this.type = type;
+	this.required = required;
+	
 }
+
+html.Form.prototype.init = function(){
+	var me = this;
+	me.container = $('<form id="info_form"/>');
+	me.renderTo.append(me.container);
+	$(this.name).each(function(index, item){
+		me.container.append('<input type="'+me.type+'" placeholder="'+me.placeholder+'" name="'+me.name+'" '+required);
+		if(item.click){
+				item.click(e);
+			}
+	});
+}
+
+
+
 
 var accountMenuBar = new html.Menu($("#accountManagment"), [
 							{
-								label : "Mes guides",
-								click : function(e){
-									sayHello(e);
-								}
+								label : "Mes guides"
 							}, 
 							{
-								label : "Mes infos"
+								label : "Mes infos",
+								click : function(e){ 
+									var accountInfoForm = new html.Form($('#user_content'), "", "fullname", "text", "");
+									accountInfoForm.init();
+								}
 							},
 							{
 								label : "Paramètres"
@@ -49,4 +71,15 @@ var accountMenuBar = new html.Menu($("#accountManagment"), [
 					]);
 
 accountMenuBar.init();
+
+
+//$('#onglet1').onclick
+
+
+}
+
+
+
+
+
 
