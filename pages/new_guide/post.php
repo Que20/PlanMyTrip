@@ -2,19 +2,16 @@
 session_start();
 include('../topbar.php');
 //$_POST['pays'] != "" || $_POST['ville'] != "" || $_POST['duration'] != "" || $_POST['contenu'] != ""
-$pays = $_POST['pays'];
-$titre = $_POST['titre'];
-$ville = $_POST['ville'];
-$duration = $_POST['duration'];
+$pays = htmlentities($_POST['pays'],ENT_QUOTES);
+$titre = htmlentities($_POST['titre'],ENT_QUOTES);
+$ville = htmlentities($_POST['ville'],ENT_QUOTES);
+$duration = htmlentities($_POST['duration'],ENT_QUOTES);
 $contenu = $_POST["input"];
 if ($pays == "" || $ville == "" || $duration == "" || $contenu == "") {
 	header('location:index.php?error=1');
 }
 else{
-	$date = date("d-m-Y");
-	$heure = date("H:i:s");
-	$stamp = $date." ".$heure;
-    echo($stamp);
+
 ?>
 <div style="padding-top:100px"></div>
 <div id="sendGuide">
