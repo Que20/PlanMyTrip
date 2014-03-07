@@ -29,20 +29,25 @@ html.Menu.prototype.init = function() {
 	});
 }
 
-html.Form = function(div, items){
-	this.renderTo = div;
+html.Form = function(global, sub, items){
+	this.global = global,
+	this.sub = sub;
 	this.items = items;
 	
 }
 
 html.Form.prototype.init = function(){
 	var me = this;
-	$('#info_form').remove();
-	me.container = $('<form id="info_form"/>');
+	me.sub.remove();
+	me.global.append(me.sub);
+	me.form = $('<form id="info_form"/>');
+	me.table = $('<table />');
+	
+	me.sub.append(me.form);
+	me.form.append(me.table);
 	$(this.items).each(function(index, item){
 		
-		me.renderTo.append(me.container);
-		me.container.append(item.label+' : <input type="'+item.type+'" placeholder="'+item.placeholder+'" name="'+item.name+'" class="'+item.cls+'" '+item.required+' /><br>');
+		me.table.append('<tr><td>'+item.label+'</td><td><input type="'+item.type+'" placeholder="'+item.placeholder+'" name="'+item.name+'" class="'+item.cls+'" '+item.required+' /></td></tr>');
 		$(item).addClass('form_element');
 	});
 }
@@ -57,7 +62,7 @@ var accountMenuBar = new html.Menu($("#accountManagment"), [
 							{
 								label : "Mes infos",
 								click : function(e){ 
-									var accountInfoForm = new html.Form($('#user_content'),[
+									var accountInfoForm = new html.Form($('#user_content'), $('#sub_content'), [
 									{
 										label : "Nom Complet",
 										type : "text",
