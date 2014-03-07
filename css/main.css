@@ -650,7 +650,29 @@ h6 {
 }
 
 #accountMenuBar {
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid #357ebd;
+    text-align: center;
+}
+
+#accountMenuBar {
+    margin: auto;
+    width: 800px;
+}
+
+.accountMenuCat {
+    display: inline-block;
+    margin-bottom: -1px;
+    margin-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border:1px solid #357ebd;
+    width: 150px;
+}
+
+.selectedCat{
+    border-bottom: 1px solid white;
 }
 /* ==========================================================================
    Media Queries
