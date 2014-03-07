@@ -19,7 +19,7 @@
 	} 
 	?>
 	<div id="user_content">
-
-	</div>
+		<div id="sub_content"></div>
+		</div>
 	<?php include("../../footer.php"); 
 ?>
