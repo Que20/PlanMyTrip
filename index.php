@@ -28,16 +28,16 @@ include("pages/topbar.php");
 
                 if (!isset($_SESSION['id']) && !isset($_SESSION['pseudo'])){
                 ?>
-                <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/pages/registration/"><div id="signup">
-                    Inscrivez-vous!
-                </div></a>
+                <div id="signup">
+                    <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/pages/registration/">Inscrivez-vous!</a>
+                </div>
                 <?php
                 }
                 else{
                 ?>
-                <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/pages/new_guide/"><div id="propose">
-                    Proposez votre Guide
-                </div></a>
+                <div id="propose">
+                    <a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/pages/new_guide/">Proposez votre Guide</a>
+                </div>
                 <?php
                 }
                 ?>

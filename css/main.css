@@ -343,6 +343,10 @@ h1 {
     border-radius: 10px;
 }
 
+#signup a {
+    color:white;
+}
+
 #propose {
     clear:both;
     width: 400px;
@@ -353,6 +357,10 @@ h1 {
     font-size: 30px;
     color:white;
     border-radius: 10px;
+}
+
+#propose a {
+    color:white;
 }
 
 #signup:hover {
@@ -597,6 +605,7 @@ tr.result td:hover {
     height: 30px;
     border-radius: 5px;
     padding: 5px;
+    margin-bottom: 450px;
 }
 
 #logErr {
