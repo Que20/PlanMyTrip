@@ -29,24 +29,21 @@ html.Menu.prototype.init = function() {
 	});
 }
 
-html.Form = function(div, placeholder, name, type, required){
+html.Form = function(div, items){
 	this.renderTo = div;
-	this.placeholder = placeholder;
-	this.name = name;
-	this.type = type;
-	this.required = required;
-	console.log(name);
+	this.items = items;
+	
 }
 
 html.Form.prototype.init = function(){
 	var me = this;
+	$('#info_form').remove();
 	me.container = $('<form id="info_form"/>');
-	me.renderTo.append(me.container);
-	$(this.name).each(function(index, item){
-		me.container.append('<input type="'+me.type+'" placeholder="'+me.placeholder+'" name="'+me.name+'" '+required);
-		if(item.click){
-				item.click(e);
-			}
+	$(this.items).each(function(index, item){
+		
+		me.renderTo.append(me.container);
+		me.container.append(item.label+' : <input type="'+item.type+'" placeholder="'+item.placeholder+'" name="'+item.name+'" class="'+item.cls+'" '+item.required+' /><br>');
+		$(item).addClass('form_element');
 	});
 }
 
@@ -60,7 +57,40 @@ var accountMenuBar = new html.Menu($("#accountManagment"), [
 							{
 								label : "Mes infos",
 								click : function(e){ 
-									var accountInfoForm = new html.Form($('#user_content'), "", "fullname", "text", "");
+									var accountInfoForm = new html.Form($('#user_content'),[
+									{
+										label : "Nom Complet",
+										type : "text",
+										placeholder : "",
+										name : "fullname",
+										required :"",
+										cls : "form_element"
+									},
+									{
+										label : "Ancien mot de passe",
+										type : "password",
+										placeholder : "",
+										name : "oldmdp",
+										required : "",
+										cls : "form_element"
+									},
+									{
+										label : "Nouveau mot de passe",
+										type : "password",
+										placeholder : "",
+										name : "newmdp",
+										required : "",
+										cls : "form_element"
+									},
+									{
+										label : "Confirmation",
+										type : "password",
+										placeholder : "",
+										name : "newconfmdp",
+										required : "",
+										cls : "form_element"
+									}
+									]);
 									accountInfoForm.init();
 								}
 							},
@@ -72,4 +102,8 @@ var accountMenuBar = new html.Menu($("#accountManagment"), [
 accountMenuBar.init();
 
 
-//$('#onglet1').onclick
+
+
+
+
+
