@@ -22,7 +22,8 @@ try{
 
 	<div id="resultsItems"><br>
         <form action="?<?php echo isset($s)."&".isset($d) ?>"  style="padding-bottom:10px;border-bottom:1px solid #D9D9D9;margin-bottom:20px;">
-            <span style="font-size:20px;margin-left:20px;">Nouvelle recherche</span> <input type=text class="searchBarSearch" name="search" placeholder=" Entrez le nom d'une ville" value="<?php echo $s ?>">
+            <span style="font-size:20px;margin-left:20px;">Nouvelle recherche</span> <input type=text class="searchBarSearch" name="search" autocomplete="off"placeholder=" Entrez le nom d'une ville" value="<?php echo $s ?>">
+
             Durée du séjour :
             <SELECT style="width:60px;" name="duration">
                     <OPTION VALUE="n"> </OPTION>
@@ -37,7 +38,8 @@ try{
                     <OPTION VALUE="9">9</OPTION>
                     <OPTION VALUE="p">10+</OPTION>
             </SELECT>
-            <input type="submit" class="searchGoSearch" value="GO">
+            <input type="submit" class="searchGoSearch" value="GO"  style="margin-right:20px;">
+            <div id="searchAutocomplete"></div>
         </form>
 		<table>
 			<?php
@@ -105,4 +107,74 @@ try{
 	</div> 
 	</div>
 </div>
+    <script type="text/javascript">
+    var o = [];
+    function autocomplete(s, result) {
+        if(s && s.length > 2) {
+            var r = $('#searchAutocomplete');
+            r.css('display','block');
+            $.ajax({
+                type : "POST",
+                url : "../pages/autocomplete.php",
+                dataType : "json",
+                data : { data : s }
+            }).done(function(data) {
+                console.log(data);
+                o = data;
+                var ul = $('<ul />');
+                $(data).each(function(index, item) {
+                    var li = $('<li />');
+                    li.text(item);
+                    li.on('click', function(e){
+                        $('.searchBarSearch').val(li.text());
+                    });
+                    li.hover(function(){
+                        li.addClass("selected");
+                    },function(){
+                        li.removeClass("selected");
+                    });
+                    ul.append(li);
+                });
+                result.html(ul);
+            }).fail(function() {
+                result.html('<p> Une erreur est survenue </p>');
+            });
+        } else {
+            result.css('display','none');
+            result.html('');
+        }
+    }
+    var s = $(".searchBarSearch").val();
+    $(document).ready(function() {
+        var i = 0;
+        $('.searchBarSearch').on('keyup', function(e) {
+            if(e.keyCode == 40){
+                if(i <= 3){
+                    $(e.target).val(o[i]);
+                    $(document.getElementsByTagName("li")).removeClass("aselected");
+                    $(document.getElementsByTagName("li")[i]).addClass("aselected");
+                    i = i + 1;
+                    if(i == 0){
+                        $(e.target).val(s);
+                    }
+                }
+            }else if(e.keyCode == 38){
+                if(i <= 3){
+                    i--;
+                    $(document.getElementsByTagName("li")).removeClass("aselected");
+                    $(document.getElementsByTagName("li")[i]).addClass("aselected");
+                if(i == 0){
+                    $(e.target).val(s);
+                }else{
+                    $(e.target).val(o[i]);
+                }
+            }
+            }else{
+                autocomplete($(e.target).val(), $('#searchAutocomplete'));
+            }
+        });
+    });
+
+    
+    </script>
 <?php include("../pages/footer.php"); ?>

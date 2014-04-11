@@ -255,7 +255,25 @@ h1 {
     box-shadow: 0px 0px 5px gray;
 }
 
+#searchAutocomplete {
+    background-color: white;
+    border: 1px solid gray;
+    float: left;
+    position: absolute;
+    width: 176px;
+    display: none;
+    margin-top: 0px;
+    margin-left: 206px;
+    box-shadow: 0px 0px 5px gray;
+}
+
 #autocomplete ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+#searchAutocomplete ul {
     list-style: none;
     padding: 0px;
     margin: 0px;
@@ -581,7 +599,7 @@ h1 {
 }
 
 tr.result td {
-    min-width: 600px;
+    min-width: 655px;
     padding-left: 10px;
     padding-right: 10px; 
     padding-top: 10px;

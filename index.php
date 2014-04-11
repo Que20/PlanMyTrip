@@ -100,7 +100,7 @@ include("pages/topbar.php");
             r.css('display','block');
             $.ajax({
                 type : "POST",
-                url : "autocomplete.php",
+                url : "pages/autocomplete.php",
                 dataType : "json",
                 data : { data : s }
             }).done(function(data) {
