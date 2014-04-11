@@ -45,6 +45,7 @@ while($item=$requete->fetch()){
                 if(!isset($resultVoteUser['hasVoted']))
                 {
                     $create=true;
+
                 }
 
 
@@ -69,7 +70,7 @@ while($item=$requete->fetch()){
                 echo("<img src='../../img/up.png'>");
             }
 
-            if(isset($_GET['votes']) && !isset($create)  && isset($_SESSION['id'])){
+            if(isset($_GET['votes']) && isset($_SESSION['id'])){
                 if($_GET['votes']=='dislike' && !isset($create)){
                  $requetSubVote = $bdd->prepare('UPDATE votes SET nbDown = nbDown+1 WHERE idGuide =
                 (SELECT idGuide FROM votesByUser WHERE idGuide= ? AND idUser = ? AND hasVoted=0);
@@ -88,16 +89,21 @@ while($item=$requete->fetch()){
                     $requetSubVote = $bdd->prepare("INSERT INTO `planmytrip`.`votesbyuser` (`id`,`idUser`, `idGuide`, `hasVoted`) VALUES (?,?,?,?);
                                                     UPDATE votes SET nbDown = nbDown+1 WHERE idGuide =
                                                     (SELECT idGuide FROM votesByUser WHERE idGuide= ? AND idUser = ? AND hasVoted=1);");
+
                     $requetSubVote->execute(array(NULL,$_SESSION['id'],$g,1,$g,$_SESSION['id']));
 
                 }
                 else if($_GET['votes']=='like' && $create==true  && isset($_SESSION['id'])){
+
+
                     $requetSubVote = $bdd->prepare("INSERT INTO `planmytrip`.`votesbyuser` (`id`, `idUser`, `idGuide`, `hasVoted`) VALUES (?,?,?,?);
                                                     UPDATE votes SET nbUp = nbUp+1 WHERE idGuide =
                                                     (SELECT idGuide FROM votesByUser WHERE idGuide= ? AND idUser = ? AND hasVoted=1);");
                     $requetSubVote->execute(array(NULL,$_SESSION['id'],$g,1,$g,$_SESSION['id']));
                 }
                 $requetSubVote->closeCursor();
+
+
             }
             $requeteLikes = $bdd->prepare('SELECT nbUp,nbDown FROM votes WHERE idGuide =?');
             $requeteLikes->execute(array(intval($item['Id_Guide'])));
