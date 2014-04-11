@@ -19,6 +19,9 @@ try{
 $requete = $bdd->prepare("SELECT * FROM guide WHERE Id_Guide LIKE ?");
 $requete->execute(array($g));
 while($item=$requete->fetch()){
+    $user = $bdd->prepare("SELECT Pseudo FROM user WHERE Id_User LIKE ?");
+    $user->execute(array($item['Id_User']));
+    while($u=$user->fetch()){
 	?>
 	<div id="guidePage">
 
@@ -26,7 +29,7 @@ while($item=$requete->fetch()){
 			<br><br>
 			<a id="backBtn" href="<?php echo $_SERVER["HTTP_REFERER"];?>">&larr; Retours</a><br><br>
 			<span id="guideName"><?php echo $item['Ville'].", ".$item['Pays']." : ".$item['Titre'] ?></span><br>
-			<span id="guideBy">Soumis par l'utilisateur : <?php echo $item['Id_User'] ?> <br> le : xx/xx/xxxx</span>
+			<span id="guideBy">Soumis par l'utilisateur : <?php echo $u['Pseudo'] ?></span>
 		</div>
 		<div id="pub1"></div>
 		<div id="guideText">
@@ -130,6 +133,7 @@ while($item=$requete->fetch()){
 
 	</div>
 	<?php
+    }
 }
 $requete->closeCursor();
 ?>

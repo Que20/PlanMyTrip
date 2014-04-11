@@ -1,6 +1,6 @@
-  	<script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/js/jquery-1.11.0.min.js"></script>
+  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   	<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
-	<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+  	<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
 						
 <?php
 	session_start();
@@ -56,7 +56,8 @@
 			<tr>
 				<td style="width:150px;">durée du séjour</td>
 				<td>
-					<SELECT style="width:200px;" name="duration">
+					<SELECT style="width:200px;" name="duration" id="duration">
+					<OPTION VALUE="1"> </OPTION>
 					<OPTION VALUE="1">1</OPTION>
 					<OPTION VALUE="2">2</OPTION>
 					<OPTION VALUE="3">3</OPTION>
@@ -75,7 +76,9 @@
 
 			À présent, partagez votre experience...<br>
 			Conseil : proposez votre guide sous forme de liste.
-
+			<div id="aNewGuide">
+			</div>
+			<br>
 			<textarea id="input" cols="80" rows="20" name="input"></textarea>
 
 			N'hésitez pas à ajouter des photos, des cartes ou des liens en tout genre.<br>
@@ -91,4 +94,33 @@
 	</div>
 	<?php } ?>
 </div>
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+  	<script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/js/jquery.geocomplete.min.js"></script>
+    <script>
+        function makeAdress(div, name, nb){
+        	var inputAdress = $('<input id='+name+' />');
+        	var inputNote = $('<textarea></textarea>');
+        	var divAdresse = $('<div id='+name+'Adress />');
+        	divAdresse.css('margin-left','20px');
+        	divAdresse.css('margin-bottom','10px');
+        	inputAdress.css('margin-bottom','10px');
+        	inputAdress.css('margin-left','10px');
+        	inputNote.css('margin-left','10px');
+        	divAdresse.append('Adresse '+nb+' :<br>');
+        	inputAdress.geocomplete();
+        	divAdresse.append(inputAdress);
+        	divAdresse.append('<br>');
+        	divAdresse.append(inputNote);
+        	divAdresse.append('<br>');
+        	div.append(divAdresse);
+        }
+        /*$('#duration').change(function(){
+        	for (var i = 0 ; i < $('#duration option:selected').val(); i++) {
+      			$('#aNewGuide').append('Jour '+i+' :');
+        		for (var j = 0 ; j < 4 ; j++) {
+        			makeAdress($('#aNewGuide'), 'adress'+j, j);
+        		}
+        	};
+        });*/
+    </script>
 <?php include("../footer.php"); ?>

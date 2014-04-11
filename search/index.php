@@ -18,7 +18,6 @@ try{
 
 	<div id="resultPage">
 	<div id="pub1">
-		Publicité plus ou moins invasive1
 	</div> 
 
 	<div id="resultsItems"><br>
@@ -70,7 +69,7 @@ try{
                         <div class="resultInfo">
                             <div class="resultName"><a href="../pages/guide/index.php?Id_Guide=<?php echo $item['Id_Guide'] ?>"><?php echo $item['Ville'].", ".$item['Pays']." : " ?><span style="font-style:italic;color:#8C8C8C;font-size:20px;"><?php echo $item['Titre'] ?><span></a></div>
                             <div class="resultAuthor">Ecris par : <?php echo $itemNomUser['Pseudo'] ?></div>
-                            Tags : <a href="#"><span class="resultTag"> Culture </span></a>, <a href="#"><span class="resultTag"> Rock </span></a>
+                            <!--Tags : <a href="#"><span class="resultTag"> Culture </span></a>, <a href="#"><span class="resultTag"> Rock </span></a>-->
                         </div>
                         <div class="resultVote">
                             <div class="greenthumb"><img class="thumb" src="../img/up.png"><br>
@@ -103,7 +102,6 @@ try{
 	</div>
 
 	<div id="pub2">
-		Publicité plus ou moins invasive2
 	</div> 
 	</div>
 </div>
