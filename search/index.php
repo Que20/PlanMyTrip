@@ -51,14 +51,14 @@ try{
             }
             else{
                 if($d == 'n'){
-                    $requeteG = $bdd->prepare("SELECT * FROM guide WHERE ville LIKE ? AND isValide = ? ORDER BY Id_Guide");
+                    $requeteG = $bdd->prepare("SELECT * FROM guide WHERE ville LIKE ? AND `isValide` LIKE ? ORDER BY Id_Guide");
                     $requeteG->execute(array('%'.mysql_real_escape_string($s).'%',1));
                 }elseif($d == 'p'){
                     $p = 10;
-                    $requeteG = $bdd->prepare("SELECT * FROM guide WHERE ville LIKE ? AND duration >= ? AND isValide = ? ORDER BY Id_Guide");
+                    $requeteG = $bdd->prepare("SELECT * FROM guide WHERE ville LIKE ? AND duration >= ? AND `isValide` LIKE ? ORDER BY Id_Guide");
                     $requeteG->execute(array('%'.mysql_real_escape_string($s).'%', $p,1));
                 }else{
-                    $requeteG = $bdd->prepare("SELECT * FROM guide WHERE ville LIKE ? AND duration LIKE ? AND isVailde = ? ORDER BY Id_Guide");
+                    $requeteG = $bdd->prepare("SELECT * FROM guide WHERE ville LIKE ? AND duration LIKE ? AND `isValide` LIKE ? ORDER BY Id_Guide");
                     $requeteG->execute(array('%'.mysql_real_escape_string($s).'%', $d,1));
                 }
                 while($item=$requeteG->fetch()){
