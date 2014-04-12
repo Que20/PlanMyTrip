@@ -29,6 +29,7 @@
 
 <?php
 	}
+	$requete->closeCursor();
 ?>
 </table>
 		
