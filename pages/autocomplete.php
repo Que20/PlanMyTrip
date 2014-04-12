@@ -20,4 +20,4 @@ if(isset($_POST['data'])){
 	$data = [ ];
 }
 echo json_encode($data);
-?> 
+?>  

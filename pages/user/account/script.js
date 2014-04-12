@@ -41,14 +41,13 @@ html.Form.prototype.init = function(){
 	if(bool == 1){
 		var me = this;
 		me.global.append(me.sub);
-		me.form = $('<form id="info_form"/>');
+		me.form = $('<div id="info_form"/>');
 		me.table = $('<table />');
 		
 		me.sub.append(me.form);
 		me.form.append(me.table);
 		$(this.items).each(function(index, item){
-			
-			me.table.append('<tr><td>'+item.label+'</td><td><input type="'+item.type+'" placeholder="'+item.placeholder+'" name="'+item.name+'" class="'+item.cls+'" '+item.required+' /></td></tr>');
+			me.table.append('<tr><td style="width:180px;">'+item.label+' </td><td><input id="'+item.id+'" type="'+item.type+'" placeholder="'+item.placeholder+'" name="'+item.name+'" class="'+item.cls+'" '+item.required+' /></td></tr>');
 			$(item).addClass('form_element');
 		});
 	}
@@ -97,6 +96,15 @@ var accountMenuBar = new html.Menu($("#accountManagment"), [
 										name : "newconfmdp",
 										required : "",
 										cls : "form_element"
+									},
+									{
+										label : "",
+										type : "submit",
+										placeholder : "",
+										name : "infoSubmit",
+										required : "",
+										cls : "inputInfoSubmit",
+										id : "inputInfoSubmit"
 									}
 									], bool);
 									accountInfoForm.init();
@@ -108,10 +116,5 @@ var accountMenuBar = new html.Menu($("#accountManagment"), [
 					]);
 
 accountMenuBar.init();
-
-
-
-
-
 
 
