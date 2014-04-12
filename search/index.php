@@ -127,11 +127,15 @@ try{
                     li.text(item);
                     li.on('click', function(e){
                         $('.searchBarSearch').val(li.text());
+                        result.css('display','none');
+                        $('body').on('click', function(e){
+                            result.css('display','none');
+                        });
                     });
                     li.hover(function(){
-                        li.addClass("selected");
+                        li.addClass("aselected");
                     },function(){
-                        li.removeClass("selected");
+                        li.removeClass("aselected");
                     });
                     ul.append(li);
                 });
