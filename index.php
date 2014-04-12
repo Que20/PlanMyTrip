@@ -71,7 +71,10 @@ include("pages/topbar.php");
                     while($guide=$lastGuids->fetch()){
                         $user = $bdd->prepare("SELECT Pseudo FROM user WHERE Id_User LIKE ?");
                         $user->execute(array($guide['Id_User']));
+                        $vote = $bdd->prepare("SELECT  `nbDown` ,  `nbUp` FROM  `votes` WHERE  `idGuide` LIKE ?");
+                        $vote->execute(array($guide['Id_Guide']));
                         while($u=$user->fetch()){
+                            while($v=$vote->fetch()){
                     ?>
                     
                     <tr>
@@ -79,11 +82,12 @@ include("pages/topbar.php");
                         <td><a href="pages/guide/index.php?Id_Guide=<?php echo $guide['Id_Guide'] ?>" style="color:black;"><?php echo $guide['Titre']; ?></a></td>
                         <td><?php echo $guide['duration']; ?> Jours</td>
                         <td><?php echo $u['Pseudo']; ?></td>
-                        <td><?php echo "Votes"; ?></td>
+                        <td><?php echo $v['nbUp']-$v['nbDown']; ?></td>
                         <td></td>
                     </tr>
                     
                     <?php
+                                }
                             }
                         }
                     ?>
