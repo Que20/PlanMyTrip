@@ -24,10 +24,7 @@
 		$requete->closeCursor();
 		
 		session_destroy();
-?>
-<script type="text/javascript">location.reload()</script>
-
-<?php
+		header("refresh : 1");
 	}
 	
 	else{

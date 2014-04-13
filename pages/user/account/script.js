@@ -137,6 +137,7 @@ var accountMenuBar = new html.Menu($("#accountManagment"), [
 									{
 										label : "Entrez votre mot de passe",
 										type : "password",
+										id : "supprmdp",
 										placeholder : "",
 										name : "supprmdp",
 										required : "required",
@@ -186,16 +187,17 @@ function sendInfo(){
 
 function deleteAccount(){
 	console.log("Suppression yolooooooooo");
-
+	var suppr = $('#supprmdp').val();
 	$.ajax({
 		type	: "POST",
 		url		: "deleteAccount.php",
 		//datatype: "json",
 		data 	: 	{
-						"supprmdp" : "alex"
+						"supprmdp" : suppr
 					}
 		}).done(function(r){
 			console.log(r);
+			location.reload();
 		}).fail(function(r){
 			console.log("fail");
 		});
