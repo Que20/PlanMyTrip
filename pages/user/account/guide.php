@@ -1,5 +1,4 @@
 <?php
-	if(isset($_POST['data'])){
 		try{
 		$bdd = new PDO('mysql:host=localhost;dbname=planmytrip', 'root', '', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 		mysql_set_charset('utf8');
@@ -12,7 +11,7 @@
 		$requete = $bdd->execute($_SESSION['id']);
 		
 ?>
-
+<html>
 <table>
 	<tr>
 		<td>PAYS</td> <td>VILLE</td> <td>DUREE</td> <td>NOM</td> <td>DATE</td> <td>ETAT</td>
