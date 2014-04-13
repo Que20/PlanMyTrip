@@ -136,7 +136,7 @@ function sendInfo(){
 		//datatype: "json",
 		data 	: 	{
 						"fullname" : "Kikoo lol",
-						"old"	   : "13245678",
+						"old"	   : "12345678",
 						"new"	   : "world",
 						"conf"	   : "world"
 					}

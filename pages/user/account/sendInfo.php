@@ -8,18 +8,17 @@
 		die('Erreur : ' . $e->getMessage());
 	}
 
-	$requete = $bdd->prepare("SELECT * FROM user WHERE id_User LIKE ? ;");
-    $requete->execute(array('%'.mysql_real_escape_string($_SESSION['id']).'%'));
+	$requete = $bdd->prepare("SELECT * FROM user WHERE Id_User = ? ;");
+    $requete->execute(array(mysql_real_escape_string($_SESSION['id'])));
 	while($user = $requete->fetch()){
 		$oldmdp = sha1('sx57b&@'.htmlentities($_POST['old'],ENT_QUOTES));
 		if($oldmdp == $user['Password']){
 			if($_POST['conf'] == $_POST['new']){
-			echo "1";
-			}else{
-				echo "0";
+				$newmdp = sha1('sx57b&@'.htmlentities($_POST['old'],ENT_QUOTES));
+				$insert = $bdd->prepare('INSERT INTO User(FullName, Pseudo, Mail, Password, ValidateKey, IsValidate) VALUES(?,?,?,?,?,?)');
+				$insert->execute(array(htmlentities($_POST['fullname'],ENT_QUOTES), htmlentities($user['Pseudo'],ENT_QUOTES), htmlentities($user['Mail'],ENT_QUOTES), $newmdp, $user['ValidateKey'], 1));
+				echo "1";
 			}
-		}else{
-			echo "0";
 		}
 		
 	}
