@@ -30,7 +30,7 @@
 			Oups..!<br>
 			<?php
 			if($mdpE == 1){
-				echo "Le mot de passe doit comporter au moins 8 characteres.";
+				echo "Le mot de passe doit comporter au moins 6 characteres.";
 			}
 			if($cpE == 1){
 				echo "Les deux mots de passes ne sont pas identiques.";
@@ -55,7 +55,7 @@
 			<td >Email</td><td><input style="width:200px;" type=email class="regMail" name="mail" required pattern="{20}"></td><td></td>
 				</tr>
 				<tr>	
-			<td >Mot de passe</td><td><input type=password class="regPassword" name="mdp" required></td><td style="font-size:12px;">> 8 charactères</td>
+			<td >Mot de passe</td><td><input type=password class="regPassword" name="mdp" required></td><td style="font-size:12px;">> 6 charactères</td>
 				</tr>
 				<tr>
 			<td >Confirmation</td><td><input type=password class="regPassword" name="mdp2" required></td><td></td>

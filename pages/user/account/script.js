@@ -179,7 +179,14 @@ function sendInfo(){
 						"conf"	   : conf
 					}
 		}).done(function(r){
-			console.log(r);
+			var notif = $('<div id="notif" />');
+			notif.text("Vos données ont bien été modifés");
+			notif.css('border','1px solid #46b8da');
+			notif.css('background-color','#9DD4E4');
+			notif.css('border-radius','5px');
+			notif.css('padding','5px');
+			$('#sub_content').html('');
+			$('#sub_content').append(notif);
 		}).fail(function(r){
 			console.log("fail");
 		});

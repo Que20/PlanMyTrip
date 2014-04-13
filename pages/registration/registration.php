@@ -15,7 +15,7 @@
 	
 	//Contrôle de la taille du mot de passe
 	
-	if( strlen($_POST['mdp']) < 8 ){
+	if( strlen($_POST['mdp']) < 6 ){
 		header("location:index.php?error=1");
 	}
 

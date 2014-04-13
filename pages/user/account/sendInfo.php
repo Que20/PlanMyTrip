@@ -14,7 +14,7 @@
 		$oldmdp = sha1('sx57b&@'.htmlentities($_POST['old'],ENT_QUOTES));
 		if($oldmdp == $user['Password']){
 			if($_POST['conf'] == $_POST['new']){
-				$newmdp = sha1('sx57b&@'.htmlentities($_POST['old'],ENT_QUOTES));
+				$newmdp = sha1('sx57b&@'.htmlentities($_POST['new'],ENT_QUOTES));
 				$insert = $bdd->prepare('UPDATE User SET FullName = ?, Password = ? WHERE Id_User = ?');
 				$insert->execute(array(htmlentities($_POST['fullname'],ENT_QUOTES), $newmdp, $_SESSION['id']));
 				echo "1";
