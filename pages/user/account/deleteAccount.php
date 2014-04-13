@@ -21,8 +21,13 @@
 	if($mdp['Password'] == $entry_mdp){
 		$requete = $bdd->prepare('DELETE FROM User WHERE Id_User = ?');
 		$requete->execute(array($_SESSION['id']));
+		$requete->closeCursor();
 		
 		session_destroy();
+?>
+<script type="text/javascript">location.reload()</script>
+
+<?php
 	}
 	
 	else{
