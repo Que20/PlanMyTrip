@@ -20,11 +20,11 @@
 	
 <?php
 	
-	while($requete->fetch()){
+	while($guide = $requete->fetch()){
 ?>
 	<tr>
-		<td><?php echo($requete['Pays']); ?></td> <td><?php echo($requete['Ville']); ?></td> <td><?php echo($requete['duration']); ?></td>
-		<td><?php echo($requete['Titre']); ?></td> <td><?php echo($requete['Datetime']); ?></td> <td><?php echo($requete['isValide']); ?></td>
+		<td><?php echo($guide['Pays']); ?></td> <td><?php echo($guide['Ville']); ?></td> <td><?php echo($guide['duration']); ?></td>
+		<td><?php echo($guide['Titre']); ?></td> <td><?php echo($guide['Datetime']); ?></td> <td><?php echo($guide['isValide']); ?></td>
 	</tr>
 
 <?php
