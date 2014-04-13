@@ -12,24 +12,35 @@
 		$requete->execute(array($_SESSION['id']));
 		
 ?>
+<style>
+	html{
+		font-family: "Myriad-Pro";
+	}
+</style>
 <html>
+<link rel="stylesheet" type="text/css" href="../../../css/main.css">
+<div id="userGuide">
 <table>
+	<thead>
 	<tr>
-		<td>PAYS</td> <td>VILLE</td> <td>DUREE</td> <td>NOM</td> <td>DATE</td> <td>ETAT</td>
+		<th style="width:100px">Pays</th> <th style="width:100px">Ville</th> <th style="width:50px">Durée</th> <th style="width:180px">Nom du guide</th> <th style="width:80px">Date</th> <th>Etat</th>
 	</tr>
-	
+	</thead>
+	<tbody>
 <?php
 	
 	while($guide = $requete->fetch()){
 ?>
 	<tr>
 		<td><?php echo($guide['Pays']); ?></td> <td><?php echo($guide['Ville']); ?></td> <td><?php echo($guide['duration']); ?></td>
-		<td><?php echo($guide['Titre']); ?></td> <td><?php echo($guide['Datetime']); ?></td> <td><?php echo($guide['isValide']); ?></td>
+		<td><?php echo($guide['Titre']); ?></td> <td><?php echo ($guide['Datetime']); ?></td> <td><?php echo($guide['isValide']); ?></td>
 	</tr>
 
 <?php
 	}
 	$requete->closeCursor();
 ?>
+	</tbody>
 </table>
+</div>
 		

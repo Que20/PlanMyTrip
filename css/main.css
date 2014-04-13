@@ -354,14 +354,6 @@ h1 {
     margin-right: 50px;
 }
 
-/**#last {
-    padding-top: -300px;
-    margin-bottom: 30px;
-    text-align: center;
-    box-shadow: 0px 0px 10px #919191;
-    margin-left: 1px;
-}**/
-
 #last {
     margin: auto;
     margin-top: 50px;
@@ -433,6 +425,42 @@ h1 {
     display: table-row-group;
     vertical-align: middle;
     border-color: inherit;
+}
+
+#userGuide table {
+    border-spacing: 2px;
+    border-color: gray;
+    text-align: left;
+    margin: auto;
+}
+
+#userGuide table tr{
+    border-bottom:1px solid #919191;
+}
+
+#userGuide table tbody tr:nth-child(even){
+    background-color:#F2F2F2;
+}
+
+#userGuide table tbody tr:hover {
+    background-color:#E0E4FF;
+}
+
+#userGuide table thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+    border-bottom: 2px solid #7A7A7A;
+}
+
+#userGuide table tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.userGuideEtat {
+    width: 30px;
 }
 
 #intro {
