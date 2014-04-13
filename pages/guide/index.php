@@ -29,7 +29,8 @@ while($item=$requete->fetch()){
 			<br><br>
 			<a id="backBtn" href="<?php echo $_SERVER["HTTP_REFERER"];?>">&larr; Retours</a><br><br>
 			<span id="guideName"><?php echo $item['Ville'].", ".$item['Pays']." : ".$item['Titre'] ?></span><br>
-			<span id="guideBy">Soumis par l'utilisateur : <?php echo $u['Pseudo'] ?></span>
+			<span id="guideBy">Soumis par l'utilisateur : <?php echo $u['Pseudo'] ?><br>
+            le <?php echo $item['Datetime'] ?></span>
 		</div>
 		<div id="pub1"></div>
 		<div id="guideText">

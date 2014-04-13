@@ -27,7 +27,7 @@ else{
 			die('Erreur : ' . $e->getMessage());
 	}
 	$request = $bdd->prepare('INSERT INTO guide(Titre, Contenu, Id_User, Pays, Ville, Datetime, duration, isValide) VALUES(?,?,?,?,?,?,?,?)');
-	$request->execute(array($titre, $contenu, $_SESSION['id'], $pays, $ville, date("d m Y"), $duration, 1));
+	$request->execute(array($titre, $contenu, $_SESSION['id'], $pays, $ville, date("d/m/Y"), $duration, 1));
     $request->closeCursor();
 
     $requestGetId = $bdd->prepare('SELECT Id_Guide FROM guide WHERE Titre = (?) AND Id_User = ? AND Contenu = ?');

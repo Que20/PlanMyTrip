@@ -8,7 +8,7 @@
 			die('Erreur : ' . $e->getMessage());
 		}
 		
-		$requete = $bdd->prepare('SELECT Pays, Ville, duration, Titre, Datetime, isValide FROM Guide WHERE Id_User = ?');
+		$requete = $bdd->prepare('SELECT * FROM Guide WHERE Id_User = ?');
 		$requete->execute(array($_SESSION['id']));
 		
 ?>
@@ -33,7 +33,14 @@
 ?>
 	<tr>
 		<td><?php echo($guide['Pays']); ?></td> <td><?php echo($guide['Ville']); ?></td> <td><?php echo($guide['duration']); ?></td>
-		<td><?php echo($guide['Titre']); ?></td> <td><?php echo ($guide['Datetime']); ?></td> <td><?php echo($guide['isValide']); ?></td>
+		<td><a target="_parent" href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/pages/guide/index.php?Id_Guide=<?php echo $guide['Id_Guide'] ?>"><?php echo($guide['Titre']); ?></a></td> <td><?php echo ($guide['Datetime']); ?></td> <td><?php 
+		if($guide['isValide'] == 1){
+			echo "<img src='../../../img/conf.png'/>";
+		}else{
+			echo "<img src='../../../img/unconf.png'/>";
+		}
+
+		?></td>
 	</tr>
 
 <?php
