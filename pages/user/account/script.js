@@ -204,7 +204,9 @@ function deleteAccount(){
 					}
 		}).done(function(r){
 			console.log(r);
-			location.reload();
+			if(r == 1){
+				location.reload();
+			}
 		}).fail(function(r){
 			console.log("fail");
 		});

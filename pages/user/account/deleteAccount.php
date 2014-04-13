@@ -24,11 +24,11 @@
 		$requete->closeCursor();
 		
 		session_destroy();
-		header("refresh : 1");
+		echo(1);
 	}
 	
 	else{
-		echo('nope');
+		echo(0);
 	}
 ?>
 		
