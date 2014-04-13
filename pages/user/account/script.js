@@ -11,7 +11,7 @@ html.Menu.prototype.init = function() {
 	var me = this;
 	me.container = $('<div id="accountMenuBar"/>')
 	me.renderTo.append(me.container);
-	var i = 0;
+	var 	i = 0;
 	$(this.items).each(function(index, item){
 		var divCat = $('<div class="accountMenuCat">');
 		divCat.text(item.label);
@@ -134,7 +134,7 @@ var accountMenuBar = new html.Menu($("#accountManagment"), [
 										label : "Entrez votre mot de passe",
 										type : "password",
 										placeholder : "",
-										name : "newconfmdp",
+										name : "supprmdp",
 										required : "required",
 										cls : "form_element"
 									},
@@ -145,6 +145,7 @@ var accountMenuBar = new html.Menu($("#accountManagment"), [
 										name : "suppr_account",
 										required : "",
 										cls : "form_element",
+										click : "deleteAccount",
 										value : "Supprimer le compte"
 									}
 									]);
@@ -168,6 +169,23 @@ function sendInfo(){
 						"old"	   : "12345678",
 						"new"	   : "world",
 						"conf"	   : "world"
+					}
+		}).done(function(r){
+			console.log(r);
+		}).fail(function(r){
+			console.log("fail");
+		});
+}
+
+function deleteAccount(){
+	console.log("Suppression yolooooooooo");
+
+	$.ajax({
+		type	: "POST",
+		url		: "deleteAccount.php",
+		//datatype: "json",
+		data 	: 	{
+						"supprmdp" : "Kikoo lol"
 					}
 		}).done(function(r){
 			console.log(r);
