@@ -145,7 +145,7 @@ var accountMenuBar = new html.Menu($("#accountManagment"), [
 										name : "suppr_account",
 										required : "",
 										cls : "form_element",
-										click : "deleteAccount",
+										click : "deleteAccount()",
 										value : "Supprimer le compte"
 									}
 									]);
@@ -185,7 +185,7 @@ function deleteAccount(){
 		url		: "deleteAccount.php",
 		//datatype: "json",
 		data 	: 	{
-						"supprmdp" : "Kikoo lol"
+						"supprmdp" : "alex"
 					}
 		}).done(function(r){
 			console.log(r);
