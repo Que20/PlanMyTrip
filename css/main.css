@@ -96,6 +96,10 @@ h1 {
     font-family: "Poetsen One";
 }
 
+#footerLinks a:visited { 
+    color:blue;
+}
+
 #page {
     margin:auto;
 }
