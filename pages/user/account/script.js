@@ -40,6 +40,7 @@ html.Form = function(global, sub, items, bool){
 html.Form.prototype.init = function(){
 	
 		var me = this;
+		var savevalue = "";
 		me.global.append(me.sub);
 		me.form = $('<div id="info_form"/>');
 		me.table = $('<table />');
@@ -47,7 +48,11 @@ html.Form.prototype.init = function(){
 		me.sub.append(me.form);
 		me.form.append(me.table);
 		$(this.items).each(function(index, item){
-			me.table.append('<tr><td style="width:180px;">'+item.label+' </td><td><input id="'+item.id+'" onclick="'+item.click+'" type="'+item.type+'" placeholder="'+item.placeholder+'" name="'+item.name+'" class="'+item.cls+'" '+item.required+' /></td></tr>');
+			if(item.value){
+				savevalue = item.value;
+			}
+				
+			me.table.append('<tr><td style="width:180px;">'+item.label+' </td><td><input id="'+item.id+'" onclick="'+item.click+'" type="'+item.type+'" placeholder="'+item.placeholder+'" name="'+item.name+'" class="'+item.cls+'" '+item.required+ 'value="'+savevalue+'" /></td></tr>');
 			$(item).addClass('form_element');
 		});
 }
@@ -113,14 +118,38 @@ var accountMenuBar = new html.Menu($("#accountManagment"), [
 										required : "",
 										cls : "inputInfoSubmit",
 										id : "inputInfoSubmit",
-										click : "sendInfo()"
+										click : "sendInfo()",
+										value : "Valider"
 									}
 									]);
 									accountInfoForm.init();
 								}
 							},
 							{
-								label : "Paramètres"
+								label : "Paramètres",
+								click : function(e){ 
+									$('#sub_content').html('');
+									var accountParam = new html.Form($('#user_content'), $('#sub_content'), [
+									{
+										label : "Entrez votre mot de passe",
+										type : "password",
+										placeholder : "",
+										name : "newconfmdp",
+										required : "required",
+										cls : "form_element"
+									},
+									{
+										label : "",
+										type : "submit",
+										placeholder : "",
+										name : "suppr_account",
+										required : "",
+										cls : "form_element",
+										value : "Supprimer le compte"
+									}
+									]);
+									accountParam.init();
+								}
 							}
 					]);
 
