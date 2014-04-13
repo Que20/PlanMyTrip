@@ -1,4 +1,5 @@
 <?php
+			session_start();
 		try{
 		$bdd = new PDO('mysql:host=localhost;dbname=planmytrip', 'root', '', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 		mysql_set_charset('utf8');
@@ -8,7 +9,7 @@
 		}
 		
 		$requete = $bdd->prepare('SELECT Pays, Ville, duration, Titre, Datetime, isValide FROM Guide WHERE Id_User = ?');
-		$requete = $bdd->execute($_SESSION['id']);
+		$requete->execute(array($_SESSION['id']));
 		
 ?>
 <html>
