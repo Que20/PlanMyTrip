@@ -47,7 +47,7 @@ html.Form.prototype.init = function(){
 		me.sub.append(me.form);
 		me.form.append(me.table);
 		$(this.items).each(function(index, item){
-			me.table.append('<tr><td style="width:180px;">'+item.label+' </td><td><input id="'+item.id+'" type="'+item.type+'" placeholder="'+item.placeholder+'" name="'+item.name+'" class="'+item.cls+'" '+item.required+' /></td></tr>');
+			me.table.append('<tr><td style="width:180px;">'+item.label+' </td><td><input id="'+item.id+'" onclick="'+item.click+'" type="'+item.type+'" placeholder="'+item.placeholder+'" name="'+item.name+'" class="'+item.cls+'" '+item.required+' /></td></tr>');
 			$(item).addClass('form_element');
 		});
 	}
@@ -59,7 +59,12 @@ html.Form.prototype.init = function(){
 
 var accountMenuBar = new html.Menu($("#accountManagment"), [
 							{
-								label : "Mes guides"
+								label : "Mes guides",
+								click : function(e){
+									var iframe = $('<iframe />');
+									iframe.attr('src','guide.php');
+									$('#user_content').append(iframe);
+								}
 							}, 
 							{
 								label : "Mes infos",
@@ -104,7 +109,8 @@ var accountMenuBar = new html.Menu($("#accountManagment"), [
 										name : "infoSubmit",
 										required : "",
 										cls : "inputInfoSubmit",
-										id : "inputInfoSubmit"
+										id : "inputInfoSubmit",
+										click : "sendInfo()"
 									}
 									], bool);
 									accountInfoForm.init();
@@ -118,3 +124,22 @@ var accountMenuBar = new html.Menu($("#accountManagment"), [
 accountMenuBar.init();
 
 
+function sendInfo(){
+	console.log("On es entré! aaah, c'est bon, vas-y salope, rentre en moi!");
+
+	$.ajax({
+		type	: "POST",
+		url		: "sendInfo.php",
+		//datatype: "json",
+		data 	: 	{
+						"fullname" : "Kikoo lol",
+						"old"	   : "13245678",
+						"new"	   : "world",
+						"conf"	   : "world"
+					}
+		}).done(function(r){
+			console.log(r);
+		}).fail(function(r){
+			console.log("fail");
+		});
+}
