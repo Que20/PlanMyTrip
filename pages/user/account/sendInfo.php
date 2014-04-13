@@ -15,10 +15,14 @@
 		if($oldmdp == $user['Password']){
 			if($_POST['conf'] == $_POST['new']){
 				$newmdp = sha1('sx57b&@'.htmlentities($_POST['old'],ENT_QUOTES));
-				$insert = $bdd->prepare('INSERT INTO User(FullName, Pseudo, Mail, Password, ValidateKey, IsValidate) VALUES(?,?,?,?,?,?)');
-				$insert->execute(array(htmlentities($_POST['fullname'],ENT_QUOTES), htmlentities($user['Pseudo'],ENT_QUOTES), htmlentities($user['Mail'],ENT_QUOTES), $newmdp, $user['ValidateKey'], 1));
+				$insert = $bdd->prepare('UPDATE User SET FullName = ?, Password = ? WHERE Id_User = ?');
+				$insert->execute(array(htmlentities($_POST['fullname'],ENT_QUOTES), $newmdp, $_SESSION['id']));
 				echo "1";
+			}else{
+				echo "0";
 			}
+		}else{
+			echo $oldmdp.' vs '. $user['Password'];
 		}
 		
 	}

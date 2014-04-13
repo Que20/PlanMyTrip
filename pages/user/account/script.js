@@ -82,6 +82,7 @@ var accountMenuBar = new html.Menu($("#accountManagment"), [
 										label : "Nom Complet",
 										type : "text",
 										placeholder : "",
+										id : "fullname",
 										name : "fullname",
 										required :"",
 										cls : "form_element"
@@ -92,12 +93,14 @@ var accountMenuBar = new html.Menu($("#accountManagment"), [
 										placeholder : "",
 										name : "oldmdp",
 										required : "",
-										cls : "form_element"
+										cls : "form_element",
+										id : "oldmdp"
 									},
 									{
 										label : "Nouveau mot de passe",
 										type : "password",
 										placeholder : "",
+										id : "newmdp",
 										name : "newmdp",
 										required : "",
 										cls : "form_element"
@@ -107,6 +110,7 @@ var accountMenuBar = new html.Menu($("#accountManagment"), [
 										type : "password",
 										placeholder : "",
 										name : "newconfmdp",
+										id : "newconfmdp",
 										required : "",
 										cls : "form_element"
 									},
@@ -159,16 +163,19 @@ accountMenuBar.init();
 
 function sendInfo(){
 	console.log("On es entré! aaah, c'est bon, vas-y salope, rentre en moi!");
-
+	var old = $('#oldmdp').val();
+	var newm = $('#newmdp').val();
+	var conf = $('#newconfmdp').val();
+	var name = $('#fullname').val();
 	$.ajax({
 		type	: "POST",
 		url		: "sendInfo.php",
 		//datatype: "json",
 		data 	: 	{
-						"fullname" : "Kikoo lol",
-						"old"	   : "12345678",
-						"new"	   : "world",
-						"conf"	   : "world"
+						"fullname" : name,
+						"old"	   : old,
+						"new"	   : newm,
+						"conf"	   : conf
 					}
 		}).done(function(r){
 			console.log(r);
