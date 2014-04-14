@@ -15,13 +15,11 @@ if(isset($_GET['id'])){
 body {
 	font-family: Helvetica;
 	padding: 20px;
-	border-left:1px solid black;
-	border-right:1px solid black;
-	box-shadow: 0px 0px 10px black;
+	box-shadow: 0px 0px 10px gray;
 	width: 800px;
 	margin: auto;
 }
-h1 {
+h1, h2 {
 	text-align: center;
 }
 .menu {
@@ -36,10 +34,28 @@ table{
 thead {
 	text-align: left;
 }
+.green {
+	text-decoration:none;
+	color:green;
+	padding:10px;
+	border:1px solid green;
+	margin-right: 10px;
+}
+.red {
+	text-decoration:none;
+	color:red;
+	padding:10px;
+	border:1px solid red;
+}
+#valid {
+	text-align: center;
+}
 </style>
 <body>
-	<h1>Panneau d'administration</h1>
-		<br><br>
+	<h1>PlanMyTrip</h1>
+	<h2>Panneau d'administration</h2>
+	<a href="panel.php" class="menu">Retour</a>
+		<br><hr><br>
 		<?php
 		try{
 			$bdd = new PDO('mysql:host=localhost;dbname=planmytrip', 'root', '', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
@@ -70,16 +86,18 @@ thead {
 			Date de soumission : <?php echo ($guide['Datetime']); ?><br>
 			Etat : <?php 
 			if($guide['isValide'] == 1){
-				echo "<img src='../img/conf.png'/>";
+				echo "<img src='../../img/conf.png'/>";
 			}else{
-				echo "<img src='../img/unconf.png'/>";
+				echo "<img src='../../img/unconf.png'/>";
 			}
 			?>
 			<?php echo $guide['Contenu']; ?>
-
-			<a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/admin/consult.php?id=<?php echo $guide['Id_Guide'] ?>&etat=1" style="text-decoration:none;color:green;">Valider</a> | 
-			<a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/admin/consult.php?id=<?php echo $guide['Id_Guide'] ?>&etat=0" style="text-decoration:none;color:red;">Refuser</a>
-
+			<hr>
+			<br>
+			<div id="valid">
+			<a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/admin/consult.php?id=<?php echo $guide['Id_Guide'] ?>&etat=1" class = "green">Valider</a>
+			<a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/admin/consult.php?id=<?php echo $guide['Id_Guide'] ?>&etat=0" class = "red">Refuser</a>
+			</div><br><br>
 		<?php
 			}
 			$requete->closeCursor();

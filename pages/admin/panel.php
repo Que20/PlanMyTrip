@@ -14,6 +14,11 @@ body {
 h1, h2 {
 	text-align: center;
 }
+a, a:visited {
+	text-decoration: none;
+	color:#0061ff;
+}
+
 .menu {
 	text-decoration: none;
 	color:#428bca;
@@ -33,7 +38,7 @@ thead {
 	<a class="menu" href="#" onclick="adminPanel(0)">Tout</a>
 	<a class="menu" href="#" onclick="adminPanel(1)">Validés</a>
 	<a class="menu" href="#" onclick="adminPanel(2)">En attente</a>
-		<br><br>
+		<br><hr><br>
 	<div id="table"></div>
 </body>
 <script type="text/javascript" src="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/js/jquery-1.11.0.min.js"></script>
@@ -56,14 +61,14 @@ function adminPanel(f){
 			ville.append(item.ville);
 			var duree = $('<td />');
 			duree.append(item.duree);
-			var nom = $('<td><a href="http://127.0.0.1/PlanMyTrip/admin/consult.php?id='+item.id+'">'+item.nom+'</a></td>');
+			var nom = $('<td><a href="consult.php?id='+item.id+'">'+item.nom+'</a></td>');
 			var date = $('<td />');
 			date.append(item.date);
 			var etat = $('<td />');
 			if(item.etat == 1){
-				etat.append($('<img src="../img/conf.png" />'));
+				etat.append($('<img src="../../img/conf.png" />'));
 			}else{
-				etat.append($('<img src="../img/unconf.png" />'));
+				etat.append($('<img src="../../img/unconf.png" />'));
 			}
 			tr.append(pays);
 			tr.append(ville);
