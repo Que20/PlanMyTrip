@@ -2,7 +2,7 @@
 	try
 	{
 		$bdd = new PDO('mysql:host=localhost;dbname=planmytrip', 'root', '');
-	
+		
 		$bdd->query("SET NAMES utf8");
 	}
 	catch (Exception $e)
