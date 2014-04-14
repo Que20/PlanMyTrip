@@ -52,8 +52,17 @@ thead {
 		$requete->execute(array($id));
 		?>
 		<?php
-			
 			while($guide = $requete->fetch()){
+					if(isset($_GET['etat'])){
+						if($_GET['etat'] == 1){
+							$update = $bdd->prepare('UPDATE Guide SET isValide = ? WHERE Id_Guide = ?');
+							$update->execute(array(1, $guide['Id_Guide']));
+						}
+						if($_GET['etat'] == 0){
+							$update = $bdd->prepare('UPDATE Guide SET isValide = ? WHERE Id_Guide = ?');
+							$update->execute(array(0, $guide['Id_Guide']));
+						}
+					}
 		?>
 			Pays : <?php echo($guide['Pays']); ?><br>
 			Ville : <?php echo($guide['Ville']); ?><br>
@@ -69,7 +78,7 @@ thead {
 			<?php echo $guide['Contenu']; ?>
 
 			<a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/admin/consult.php?id=<?php echo $guide['Id_Guide'] ?>&etat=1" style="text-decoration:none;color:green;">Valider</a> | 
-			<a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/admin/consult.php?id=<?php echo $guide['Id_Guide'] ?>&etat=1" style="text-decoration:none;color:red;">Refuser</a>
+			<a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/admin/consult.php?id=<?php echo $guide['Id_Guide'] ?>&etat=0" style="text-decoration:none;color:red;">Refuser</a>
 
 		<?php
 			}

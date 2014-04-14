@@ -193,7 +193,6 @@ function sendInfo(){
 }
 
 function deleteAccount(){
-	console.log("Suppression yolooooooooo");
 	var suppr = $('#supprmdp').val();
 	$.ajax({
 		type	: "POST",

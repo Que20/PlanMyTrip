@@ -77,7 +77,7 @@ thead {
 				<td><?php echo($guide['Pays']); ?></td>
 				<td><?php echo($guide['Ville']); ?></td>
 				<td><?php echo($guide['duration']); ?></td>
-				<td><a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/admin/consult?id=<?php echo $guide['Id_Guide'] ?>"><?php echo($guide['Titre']); ?></a></td> <td><?php echo ($guide['Datetime']); ?></td>
+				<td><a href="http://<?php echo $_SERVER['HTTP_HOST'] ?>/PlanMyTrip/admin/consult.php?id=<?php echo $guide['Id_Guide'] ?>"><?php echo($guide['Titre']); ?></a></td> <td><?php echo ($guide['Datetime']); ?></td>
 				<td><?php 
 					if($guide['isValide'] == 1){
 						echo "<img src='../img/conf.png'/>";
