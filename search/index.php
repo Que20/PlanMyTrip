@@ -1,8 +1,17 @@
 <?php
 session_start();
 include("../pages/topbar.php");
-$s =  htmlentities($_GET['search'],ENT_QUOTES);
-$d =  htmlentities($_GET['duration'],ENT_QUOTES);
+if(isset($_GET['search'])){
+    $s =  htmlentities($_GET['search'],ENT_QUOTES);
+}else{
+    $s = "";
+}
+if(isset($_GET['search'])){
+    $d =  htmlentities($_GET['duration'],ENT_QUOTES);
+}else{
+    $d = "";
+}
+
 try{
 	$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
 	$bdd = new PDO('mysql:host=localhost;dbname=planmytrip', 'root', '', $pdo_options);
