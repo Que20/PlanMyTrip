@@ -66,7 +66,7 @@ include("pages/topbar.php");
                     </thead>
                     <tbody>    
                     <?php
-                    $lastGuids = $bdd->prepare("SELECT * FROM guide ORDER BY Id_Guide DESC LIMIT 0 , 5");
+                    $lastGuids = $bdd->prepare("SELECT * FROM guide WHERE isValide = 1 ORDER BY Id_Guide DESC LIMIT 0 , 5");
                     $lastGuids->execute();
                     while($guide=$lastGuids->fetch()){
                         $user = $bdd->prepare("SELECT Pseudo FROM user WHERE Id_User LIKE ?");
